@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&family=Montserrat&display=swap");
+
+:root {
+    /* colors */
+    --main-color: #645cff;
+    --background-color-grey: #f1f5f9;
+    --background-color-white: white;
+
+}
+
+:root {
+    /* other */
+    --max-width: 1120px;
+    --fixed-width: 600px;
+}
+
+body {
+    width: var(--max-width);
+    background-color: var(--background-color-grey);
+}
+
+.nav-header span {
+    color: var(--main-color);
+}
+
+nav {
+    box-sizing: border-box;
+    width: var(--max-width);
+    background-color: white;
+    box-shadow: 0 1px 2 px 0 rgb(0, 0, 0, 0, 1);
+    margin-bottom: 6rem;
+}
+
+.nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin: 0 1rem;
+
+}
+
+.social-icons a {
+    margin: 0 0.5rem;
+    color: var(--main-color);
+}
+
+ul {
+    list-style: none;
+}
+
+h4 {
+    font-size: 30px;
+}
+
+header nav a {
+    align-items: flex-end;
+}
+
+.container {
+    box-sizing: border-box;
+    width: var(--max-width);
+    background-color: var(--background-color-white);
+    padding: 1rem;
+}
+
+.form {
+    background: var(--background-color-white);
+    margin: 3rem auto;
+}
+
+div.first-task {
+    display: flex;
+    width: 600px;
+    margin: 0 auto;
+}
+
+form input {
+    width: 600px;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid grey;
+    padding: 0.375rem 0.75rem;
+
+
+}
+
+div.error {
+    font-size: small;
+    color: rgb(146, 39, 39);
+    padding-top: 8px;
+    padding-left: 250px;
+}
+
+button {
+    background-color: var(--main-color);
+    color: white;
+    border: transparent;
+    border-radius: 0 5px 5px 0;
+    padding: 0.375rem 0.75rem;
+    display: inline-block;
+}
+
+h1 {
+    text-align: center;
+}
