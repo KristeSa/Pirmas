@@ -1,0 +1,21 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-content: center;
+    gap: 32px;
+}
+
+.grid-item {
+    background-color: cyan;
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    align-items: center;
+    height: 500px;
+}
+
+.grid-special-container {
+    display: grid;
+    grid-template-columns: auto;
+
+}
