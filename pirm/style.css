@@ -1,0 +1,33 @@
+#big-box {
+    background-color: red;
+    width: 200px;
+    height: 300px;
+    transition: width 1s, background-color 0.5s;
+    margin-bottom: 300px;
+}
+
+#big-box:hover {
+    width: 500px;
+    background-color: green;
+}
+
+@keyframes exampleCA {
+    from {
+        background-color: red;
+    }
+
+    to {
+        width: 600px;
+        background-color: blue;
+    }
+}
+
+#second-box {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    animation-name: exampleCA;
+    animation-duration: 4s;
+    animation-timing-function: ease-in;
+    animation-delay: 2s;
+}
