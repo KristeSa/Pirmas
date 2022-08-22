@@ -1,0 +1,84 @@
+body {
+    background-color: rgb(185, 180, 180);
+    color: rgb(80, 77, 77);
+}
+
+header {
+    background-color: white;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+nav a {
+    display: block;
+    color: purple;
+    text-decoration: none;
+    font-size: 35px;
+    padding-bottom: 10px;
+}
+
+nav a:hover {
+    color: blue;
+}
+
+header h2:hover {
+    color: blue;
+}
+
+.container {
+    background-color: white;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    font-size: 25px;
+    margin-bottom: 60px;
+}
+
+h1 {
+    padding-left: 20px;
+}
+
+div.grid-item {
+    display: grid;
+    border-bottom: 1px solid rgb(171, 155, 155);
+    justify-content: space-between;
+    align-items: center;
+    font-size: large;
+    padding: 20px;
+}
+
+.title {
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding-top: 20px;
+}
+
+@media only screen and (min-width: 800px) {
+    header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    header .container {
+        padding: 0;
+    }
+
+    nav a {
+        display: inline;
+        margin-left: 20px;
+    }
+
+
+
+}
