@@ -8,10 +8,7 @@
 .top-container {
     background-color: var(--main-color-white);
     padding: 10px;
-
 }
-
-
 
 .logo {
     font-weight: bold;
@@ -42,7 +39,6 @@ nav {
     background-color: var(--main-color-purple);
     color: var(--main-color-white);
     border-radius: 50%;
-
 }
 
 .fa-twitter {
@@ -67,8 +63,10 @@ nav {
     padding-bottom: 150px;
 }
 
-h1 {
-    letter-spacing: 5px;
+h1,
+h2 {
+    letter-spacing: 3px;
+    text-align: center;
 }
 
 .container-purple p {
@@ -85,16 +83,14 @@ button {
     padding: 5px;
     border-radius: 5px;
     box-shadow: ;
+
 }
 
-h2 {
-    text-align: center;
-    padding: 30px;
-}
 
 .container-white {
     text-align: justify;
     margin-left: 20px;
+    margin-right: 20px;
 }
 
 .container-white p {
@@ -121,21 +117,99 @@ h2 {
 .container-grey {
     background-color: var(--main-color-grey);
     padding-bottom: 50px;
-    ;
 }
 
 .grid-container {
     display: grid;
     grid-template-columns: auto auto;
-    padding: 10px;
     justify-content: center;
     align-items: center;
-
-
 }
 
 .grid-item {
     padding: 20px;
     text-align: justify;
+}
 
+.photo-container {
+    position: relative;
+    margin: 20px;
+    border: 0.5px solid rgb(214, 210, 210);
+}
+
+img {
+    width: 100%;
+}
+
+.date {
+    position: absolute;
+    top: 20px;
+    background-color: var(--main-color-purple);
+    padding: 5px;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px
+}
+
+.destination {
+    display: inline;
+    font-size: x-small;
+    color: var(--main-color-purple);
+    text-align: left;
+
+}
+
+.tour-name {
+    font-weight: bold;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+div.photo-container .fa-map {
+    color: var(--main-color-purple);
+}
+
+.grey {
+    background-color: var(--main-color-grey);
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.container-gallery {
+    background-color: var(--main-color-purple);
+}
+
+.container-updates {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    background-color: var(--main-color-purple);
+    color: var(--main-color-white);
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+
+
+.footer-container {
+    background-color: black;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.footer-container a {
+    text-decoration: none;
+    color: var(--main-color-white);
+}
+
+.footer-icons {
+    color: black;
+    background-color: var(--main-color-purple);
+}
+
+.footer-text {
+    color: var(--main-color-white);
 }
