@@ -1,32 +1,40 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400|Poppins&display=swap");
+
 :root {
-    --main-color-purple: rgb(103, 67, 170);
+    --main-color-purple: #645cff;
     --main-color-white: rgba(255, 255, 255, 0.986);
-    --main-color-grey: rgb(202, 184, 184);
+    --main-color-grey: #e2e8f0;
 }
 
+html {
+    font-size: 100%;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+}
 
 .top-container {
     background-color: var(--main-color-white);
     padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .logo {
-    font-weight: bold;
+    font-weight: bolder;
+    font-size: 1.2rem;
 }
 
 span {
     color: var(--main-color-purple);
 }
 
-nav {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-.fa {
+.icons>.fa {
     margin: 5px;
     padding: 5px;
+    width: 15px;
     text-align: center;
     text-decoration: none;
 }
@@ -55,45 +63,56 @@ nav {
     opacity: 0.7;
 }
 
-.container-purple {
-    background-color: var(--main-color-purple);
-    color: var(--main-color-white);
-    text-align: center;
-    padding-top: 150px;
-    padding-bottom: 150px;
-}
-
 h1,
 h2 {
     letter-spacing: 3px;
     text-align: center;
+    font-family: "Poppins", sans-serif;
 }
 
-.container-purple p {
+.container-explore {
+    min-height: 100vh;
+    background-color: var(--main-color-purple);
+    color: var(--main-color-white);
+    text-align: center;
+}
+
+.container-explore h1 {
+    text-align: center;
+    padding-top: 200px;
+}
+
+.container-explore p {
     padding-left: 30px;
     padding-right: 30px;
     padding-bottom: 10px;
-
 }
 
-button {
+.btn-explore {
     background-color: var(--main-color-purple);
     color: var(--main-color-white);
     font-size: x-small;
     padding: 5px;
     border-radius: 5px;
-    box-shadow: ;
-
+    border: transparent;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    text-align: center;
 }
 
+@media screen and (min-width: 768px) {
+    .container-explore {
+        background: linear-gradient(rgba(74, 63, 218, 0.7), rgba(0, 0, 0, 0.7)),
+            url("https://images.unsplash.com/photo-1504280317859-9c6cce36bca8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format") center/cover no-repeat;
+    }
+}
 
-.container-white {
+.container-about {
     text-align: justify;
     margin-left: 20px;
     margin-right: 20px;
 }
 
-.container-white p {
+.container-about p {
     text-align: justify;
 }
 
@@ -101,34 +120,55 @@ button {
     display: none;
 }
 
-#myBtn {
+.btn-readmore {
     background: none;
     border: none;
+    text-decoration: none;
     color: var(--main-color-purple);
     font-weight: bold;
     padding-bottom: 50px;
 }
+
+@media screen and (min-width: 768px) {
+    .inside-about {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1170px;
+    }
+
+    .about-img,
+    .about-content {
+        flex: 0 0 calc(50%-2rem);
+        align-self: center;
+        margin-bottom: 0;
+    }
+}
+
+.container-services {
+    background-color: var(--main-color-grey);
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+/*.grid-container.services {
+    text-align: center;
+}*/
 
 .fa-solid {
     background: var(--main-color-purple);
     padding: 10px;
 }
 
-.container-grey {
-    background-color: var(--main-color-grey);
-    padding-bottom: 50px;
-}
-
-.grid-container {
+/*.grid-container.services {
     display: grid;
     grid-template-columns: auto auto;
     justify-content: center;
     align-items: center;
-}
+}*/
 
 .grid-item {
     padding: 20px;
-    text-align: justify;
+    margin: 0 auto;
 }
 
 .photo-container {
@@ -159,7 +199,6 @@ img {
     font-size: x-small;
     color: var(--main-color-purple);
     text-align: left;
-
 }
 
 .tour-name {
@@ -182,34 +221,69 @@ div.photo-container .fa-map {
     background-color: var(--main-color-purple);
 }
 
-.container-updates {
-    display: grid;
-    grid-template-columns: 30% 70%;
-    background-color: var(--main-color-purple);
-    color: var(--main-color-white);
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
+.all-tours {
+    text-align: center;
+    margin: 30px;
 }
 
+.all-tours a {
+    text-decoration: none;
+    font-weight: bold;
+}
 
+.container-updates {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    align-items: center;
+    background-color: var(--main-color-purple);
+    color: var(--main-color-white);
+    padding-left: 20px;
+}
 
 .footer-container {
+    display: flex;
+    flex-wrap: wrap;
     background-color: black;
-    text-align: center;
-    margin: 0 auto;
+    justify-content: center;
+    align-content: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .footer-container a {
     text-decoration: none;
     color: var(--main-color-white);
+    margin: 0 5px;
+    text-align: center;
 }
 
-.footer-icons {
+nav.menu {
+    margin-bottom: 20px;
+}
+
+.footer-icons .fa {
+    margin-top: 20px;
+    padding: 5px;
+    width: 20px;
+    font-size: 1.25rem;
+}
+
+.footer-icons>.fa-twitter {
+    color: var(--main-color-purple);
+}
+
+.footer-icons>.fa-facebook {
+    color: black;
+    background-color: var(--main-color-purple);
+}
+
+.footer-icons>.fa-linkedin {
     color: black;
     background-color: var(--main-color-purple);
 }
 
 .footer-text {
     color: var(--main-color-white);
+    padding-top: 20px;
+    font-size: small;
 }
