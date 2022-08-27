@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hiking Tours</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://kit.fontawesome.com/750fc2e4ed.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -13,20 +16,33 @@
 </head>
 
 <body>
-    <heading>
+    <header>
         <div class="top-container">
-            <div class="logo">Hiking <span>Tours</span></div>
-            <nav class="icons">
-                <a href="#" class="fa fa-facebook"></a>
-                <a href="#" class="fa fa-twitter"></a>
-                <a href="#" class="fa fa-linkedin"></a>
-            </nav>
+            <h4 class="logo">Hiking <span>Tours</span></h4>
+            <div class="menu">
+                <nav>
+                    <a href="#">Home</a>
+                    <a href="#">About</a>
+                    <a href="#">Services</a>
+                    <a href="#">Featured</a>
+                    <a href="#">Gallery</a>
+                </nav>
+            </div>
+            <div class="icons">
+                <ul class="icons-social">
+                    <li>
+                        <a href="#" class="fa fa-facebook"></a>
+                        <a href="#" class="fa fa-twitter"></a>
+                        <a href="#" class="fa fa-linkedin"></a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </heading>
+    </header>
     <main>
         <section>
             <div class="container-explore">
-                <h1>CONTINUE <br> EXPLORING </br></h1>
+                <h1>CONTINUE EXPLORING</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur quas sit.</p>
                 <button class="btn-explore">Explore Tours</button>
             </div>
@@ -68,114 +84,138 @@
         </section>
 
         <section>
-            <div class="container-services">
+            <div class="services">
                 <h2>OUR <span> SERVICES</span></h2>
-                <div class="services grid-container">
-                    <div class="grid-item">
+                <div class="services-main">
+                    <article class="container-services">
                         <i class="fa-solid fa-wallet"></i>
-                        <h4>SAVING MONEY</h4>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis, sed.</P>
-                    </div>
-                    <div class="grid-item">
+                        <div class="services-info">
+                            <h4>SAVING MONEY</h4>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis, sed.</P>
+                        </div>
+                    </article>
+                    <article class="container-services">
                         <i class="fa-solid fa-tree"></i>
-                        <h4>ENDLESS HIKING</h4>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis, sed.</P>
-                    </div>
+                        <div class="services-info">
+                            <h4>ENDLESS HIKING</h4>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis, sed.</P>
+                        </div>
+                    </article>
 
-                    <div class="grid-item">
+                    <article class="container-services">
                         <i class="fa-solid fa-socks"></i>
-                        <h4>AMAZING COMFORT</h4>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis, sed.</P>
-                    </div>
+                        <div class="services-info">
+                            <h4>AMAZING COMFORT</h4>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis, sed.</P>
+                        </div>
+                    </article>
                 </div>
+            </div>
         </section>
-        <section>
 
+        <section>
             <h2>FEATURED <span>TOURS</span></h2>
-            <div class="photo-container">
-                <img src="https://images.unsplash.com/photo-1623128201039-faeb81209656?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8dGliZXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-                    alt="Tibet-mountains">
-                <div class="date"> August 14th, 2022</div>
-                <div class="tour-name">Tibet Adventure</div>
-                <div class="flex-container">
-                    <div>
-                        <i class="fa fa-map"></i>
-                        <div class="destination">China</div>
+            <div class="featured-tours-container">
+                <article class="photo-container">
+                    <div class="photo-container-image">
+                        <img src="https://images.unsplash.com/photo-1623128201039-faeb81209656?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8dGliZXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+                            alt="Tibet-mountains">
+                        <p class="date"> August 14th, 2022
+                        </p>
                     </div>
-                    <div class="price">6 days <br> From $2100</br></div>
-                </div>
-        </section>
-        <section>
-            <div class="photo-container">
-                <img src="https://images.unsplash.com/photo-1596467973106-ba7ebeef5cb9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1455&q=80"
-                    alt="Java-vulcano">
-                <div class="date"> October 1th, 2022</div>
-                <div class="tour-name">Best Of Java</div>
-                <div class="flex-container">
-                    <div>
-                        <i class="fa fa-map"></i>
-                        <div class="destination">Indonesia</div>
+                    <div class="tour-name">Tibet Adventure</div>
+                    <div class="flex-container">
+                        <div>
+                            <i class="fa fa-map"></i>
+                            <div class="destination">China</div>
+                        </div>
+                        <div class="price">6 days <br> From $2100</br></div>
                     </div>
-                    <div class="price">10 days <br> From $4100</br></div>
-                </div>
-        </section>
+                </article>
 
-        <section>
-            <div class="photo-container">
-                <img src="https://images.unsplash.com/photo-1536599018102-9f803c140fc1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1528&q=80"
-                    alt="Hong Kong">
-                <div class="date"> September 26th, 2022</div>
-                <div class="tour-name">Explore Hong Kong</div>
-                <div class="flex-container">
-                    <div>
-                        <i class="fa fa-map"></i>
-                        <div class="destination">Hong Kong</div>
+                <article class="photo-container">
+                    <div class="photo-container-image">
+                        <img src="https://images.unsplash.com/photo-1596467973106-ba7ebeef5cb9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1455&q=80"
+                            alt="Java-vulcano">
+                        <p class="date"> October 1th, 2022
+                        </p>
                     </div>
-                    <div class="price">13 days <br> From $3100</br></div>
-                </div>
-        </section>
+                    <div class="tour-name">Best Of Java</div>
+                    <div class="flex-container">
+                        <div>
+                            <i class="fa fa-map"></i>
+                            <div class="destination">Indonesia</div>
+                        </div>
+                        <div class="price">10 days <br>From $4100</br></div>
+                    </div>
+                </article>
 
-        <section>
-            <div class="photo-container">
-                <img src="https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1467&q=80"
-                    alt="Hong Kong">
-                <div class="date"> December 5th, 2022</div>
-                <div class="tour-name">Kenya Highlights</div>
-                <div class="flex-container">
-                    <div>
-                        <i class="fa fa-map"></i>
-                        <div class="destination">Kenya</div>
+                <article class="photo-container">
+                    <div class="photo-container-image">
+                        <img src="https://images.unsplash.com/photo-1536599018102-9f803c140fc1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1528&q=80"
+                            alt="Hong Kong">
+                        <p class="date"> September 26th, 2022</p>
                     </div>
-                    <div class="price">22 days <br> From $5400</br></div>
-                </div>
+                    <div class="tour-name">Explore Hong Kong</div>
+                    <div class="flex-container">
+                        <div>
+                            <i class="fa fa-map"></i>
+                            <div class="destination">Hong Kong</div>
+                        </div>
+                        <div class="price">13 days <br> From $3100</br></div>
+                    </div>
+                </article>
+
+                <article class="photo-container">
+                    <div class="photo-container-image">
+                        <img src="https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1467&q=80"
+                            alt="Hong Kong">
+                        <p class="date"> December 5th, 2022</p>
+                    </div>
+                    <div class="tour-name">Kenya Highlights</div>
+                    <div class="flex-container">
+                        <div>
+                            <i class="fa fa-map"></i>
+                            <div class="destination">Kenya</div>
+                        </div>
+                        <div class="price">22 days <br> From $5400</br></div>
+                    </div>
+                </article>
             </div>
             <div class="all-tours"><a href="#">All Tours</a> </div>
         </section>
 
         <section>
-            <div class="grey">
-                <h2>OUR <span>GALLERY</span>
-                </h2>
-            </div>
-            <div class="container-gallery">
-                <img src="https://images.unsplash.com/photo-1623128201039-faeb81209656?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8dGliZXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-                    alt="Tibet-mountains">
-                <img src="https://images.unsplash.com/photo-1596467973106-ba7ebeef5cb9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1455&q=80"
-                    alt="Java-vulcano">
-                <img src="https://images.unsplash.com/photo-1536599018102-9f803c140fc1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1528&q=80"
-                    alt="Hong Kong">
-                <img src="https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1467&q=80"
-                    alt="Hong Kong">
-            </div>
+            <div class="gallery">
+                <h2>OUR <span>GALLERY</span></h2>
+                <div class="container-gallery">
+                    <div class=gallery-img-container>
+                        <img src="https://images.unsplash.com/photo-1623128201039-faeb81209656?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8dGliZXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+                            class="gallery-img" alt="Tibet-mountains">
+                    </div>
+                    <div class="gallery-img-container">
+                        <img src="https://images.unsplash.com/photo-1596467973106-ba7ebeef5cb9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1455&q=80"
+                            class="gallery-img" alt="Java-vulcano">
+                    </div>
+                    <div class="gallery-img-container">
+                        <img src="https://images.unsplash.com/photo-1536599018102-9f803c140fc1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1528&q=80"
+                            class="gallery-img" alt="Hong Kong">
+                    </div>
+                    <div class="gallery-img-container">
+                        <img src="https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1467&q=80"
+                            class="gallery-img" alt="Hong Kong">
+                    </div>
+
+                </div>
             </div>
         </section>
 
         <section>
             <div class="container-updates">
-                <h2> WANT LATEST TOUR INFO AND UPDATES? </h2>
+                <h2 class="big-text"> WANT LATEST TOUR INFO AND UPDATES? </h2>
                 <div class="form-container">
                     <form method="post">
-                        <input type="email" name="subscribe" placeholder="YOUR EMAIL"><input type="submit"
+                        <input type="email" class="subscribe" placeholder="YOUR EMAIL"><input type="submit"
                             value="SUBMIT">
                     </form>
                 </div>
@@ -185,13 +225,13 @@
 
         <footer>
             <div class="footer-container">
-                <nav class="menu">
-                    <a href="#">Home</a>
-                    <a href="#">About</a>
-                    <a href="#">Services</a>
-                    <a href="#">Featured</a>
-                    <a href="#">Gallery</a>
-                </nav>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#featured">Featured</a>
+                    <a href="#gallery">Gallery</a>
+                </div>
                 <div class="footer-icons">
                     <a href="#" class="fa fa-facebook"></a>
                     <a href="#" class="fa fa-twitter"></a>
