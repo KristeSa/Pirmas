@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="text" id="email">
+        <input type="checkbox" id="subscribe">
+        <label for="subscribe">Ar nori gauti naujienlaiski?</label></br>
+        <button type="submit">submit</button>
+    </form>
+    <h1 id="result"></h1>
+
+<script>
+    const userInput = document.getElementById("email")
+        const tInput = document.querySelector("input[type=checkbox]")
+        const result = document.getElementById("result")
+
+       
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            const isSubscribed = tInput.checked
+
+            if (!isSubscribed) {
+                result.textContent="Registracija nesėkminga"
+            } else {
+                result.textContent="Registracija sėkminga"
+            }
+        }
+        document.querySelector("form").addEventListener("submit", handleFormSubmit);
+</script>
+
+
+</body>
+</html>

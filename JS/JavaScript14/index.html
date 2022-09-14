@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <h1 id="result"></h1>
+</head>
+<body>
+    <form>
+    <input id="stazas" type="number">
+    <button type="submit">submit</button>
+</form>
+<script>
+
+const result = document.getElementById("result");
+const userInput = document.getElementById("stazas");
+const form = document.querySelector("form");
+
+form.addEventListener("submit", handleFormSubmit);
+
+function handleFormSubmit(event) {
+    event.preventDefault();
+
+    const experience = Number(userInput.value);
+    const bonus = 50;
+
+    if (experience < 10) {
+        result.textContent =`(${experience}): jusu bonusas ${bonus}`
+    } else if (experience >=10 && experience <20) {
+        result.textContent =`(${experience}): jusu bonusas ${bonus+50}`
+    } else {
+        result.textContent =`(${experience}): jusu bonusas ${bonus+100}`
+    }
+}
+
+</script>
+</body>
+</html>

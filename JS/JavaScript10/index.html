@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form>
+        <input type="number" id="age" placeholder="amzius">
+        <input type="checkbox" id="record" value="record">
+        <label for="record">Ar turi irasa?</label></br>
+        <button type="submit">Submit</button>
+          </form>
+          <h1 id="result"></h1>
+
+    <script>
+        const ageInput = document.getElementById("age")
+        const tInput = document.querySelector("input[type=checkbox]")
+        const form = document.querySelector("form");
+        const result = document.getElementById("result")
+
+        form.addEventListener("submit", handleFormSubmit);
+
+        function handleFormSubmit (event){
+            event.preventDefault();
+        const age = Number(ageInput.value);
+        const hasRecord = tInput.checked;
+
+if (age >= 18 && age <=30 && !hasRecord ) {
+    result.textContent ="Keliauk i kariuomene"
+} else {
+    result.textContent ="Neik"
+    }
+}
+    </script>
+</body>
+
+</html>

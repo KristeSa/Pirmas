@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form>
+        <input id="temp" type="number" placeholder="Iveskite temperatura">
+        <button type="submit">submit</button>
+    </form>
+    <h1 id="result"></h1>
+
+    <script>
+
+const userInput = document.getElementById("temp")
+const result = document.getElementById("result")
+
+function calcTemp(temp) {
+    return (temp*33.8)
+    }
+
+function handleFormSubmit(event) {
+    event.preventDefault();
+
+    const temp = Number(document.getElementById("temp").value)
+    result.textContent = `${temp*33.8}`;
+}
+
+document.querySelector('form').addEventListener("submit", handleFormSubmit);
+
+    </script>
+
+</body>
+</html>
