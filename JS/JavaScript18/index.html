@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <input type="text" id="name" placeholder="irasykite varda">
+        <input type="number" id="number" min="0" placeholder="irasykite amziu">
+        <button type="submit">submit</button>
+    </form>
+    <ul id="list"></ul>
+
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const firstName = document.getElementById("name").value;
+            const iNumber = Number(document.getElementById("number").value);
+            const list = document.getElementById("list");
+
+            list.innerHTML = "";
+            for (let i = 0; i < iNumber; i++) {
+                const listItem = document.createElement('li');
+                listItem.innerText = firstName;
+                list.append(listItem);
+            }
+        }
+
+        document.querySelector('form').addEventListener('submit', handleFormSubmit);
+
+
+    </script>
+
+</body>
+
+</html>
