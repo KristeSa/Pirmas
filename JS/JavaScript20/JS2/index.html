@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+document.body.style.backgroundColor="lightblue";
+document.body.style.textAlign="center"
+
+const photo = document.createElement("img")
+photo.setAttribute('src', './oip.jpg')
+document.body.append(photo);
+photo.style.height="150px";
+photo.style.borderRadius="50%";
+photo.style.border="5px solid white"
+
+const whiteBack = document.createElement("div");
+document.body.append(whiteBack)
+whiteBack.style.backgroundColor="white";
+whiteBack.style.borderRadius="20px"
+whiteBack.style.width="800px"
+whiteBack.style.height="900px";
+whiteBack.style.margin="0 auto"
+whiteBack.style.marginTop="-150px"
+
+const header = document.createElement('h1')
+whiteBack.appendChild(header).textContent="Trent Walton";
+header.style.paddingTop="200px"
+
+const headerTwo = document.createElement('h2')
+whiteBack.appendChild(headerTwo).textContent="Founder of Paravelinc";
+headerTwo.style.color="grey";
+
+const headerThree = document.createElement('h2')
+whiteBack.appendChild(headerThree).textContent="Austin, TX ";
+headerThree.style.color="grey";
+
+
+
+
+
+    </script>
+</body>
+</html>
