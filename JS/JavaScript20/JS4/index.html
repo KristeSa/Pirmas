@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form>
+        <input type="number" id="price" step="0.001" placeholder="įveskite kainą"/>
+        <input type="number" id="fuel" step="0.1" placeholder="Degalų kiekis"/>
+        <button type="submit">Skaičiuoti</button>
+    </form>
+    
+    <script>
+        
+document.querySelector("form").addEventListener("submit", (e) => {
+
+const priceInput = Number(document.getElementById("price").value);
+const fuelInput = Number(document.getElementById("fuel").value);
+
+const fuelPrice = priceInput * fuelInput;
+console.log(fuelPrice)
+
+const header = document.createElement("h1");
+header.textContent = fuelPrice.toFixed(2);
+document.body.append(header);
+
+console.log(header)
+
+});
+
+    </script>
+</body>
+</html>
