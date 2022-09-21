@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>click</button>
+    <script>
+      const button = document.querySelector("button");
+      button.style.cssText = "position:absolute; top:0; left:0;";
+
+      let isInOriginalPosition = true;
+      function changePosition() {
+        event.target.style.cssText = isInOriginalPosition
+          ? "position:absolute; bottom:0; right:0;"
+          : "position:absolute; top:0; left:0;";
+        isInOriginalPosition = !isInOriginalPosition;
+      }
+
+      button.addEventListener("click", changePosition);
+    </script>
+  </body>
+</html>
