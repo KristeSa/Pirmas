@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function alertName(text) {
+        alert(text);
+      }
+
+      function consoleName(text) {
+        console.log(text);
+      }
+
+      function coreFunction(name, callback) {
+        const capitalisedName =
+          name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+        callback(capitalisedName);
+      }
+      coreFunction("krisTIna", consoleName);
+      coreFunction("krisTIna", alertName);
+    </script>
+  </body>
+</html>

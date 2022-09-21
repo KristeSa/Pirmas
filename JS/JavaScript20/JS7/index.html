@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <input type="text" id="name" placeholder="Vardas ir pavarde" />
+      <button type="submit">Įvesk</button>
+    </form>
+
+    <script>
+      document.querySelector("form").addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const nameInput = document.getElementById("name").value.split(" ");
+
+        const headerOne = document.createElement("h1");
+        headerOne.textContent = nameInput[0];
+        document.body.append(headerOne);
+
+        const headerTwo = document.createElement("h1");
+        headerTwo.textContent = nameInput[1];
+        document.body.append(headerTwo);
+      });
+    </script>
+  </body>
+</html>
