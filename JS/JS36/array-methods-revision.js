@@ -23,6 +23,8 @@ const getConsumers = (consumerCount = 10) => {
         return "Saule";
       case 4:
         return "Lina";
+      case 5:
+        return "Mantas";
       default:
         return null;
     }
