@@ -30,3 +30,4 @@ const createPersonCard = (person) => {
 
 const showPerson = JSON.parse(localStorage.getItem("person"));
 createPersonCard(showPerson);
+
