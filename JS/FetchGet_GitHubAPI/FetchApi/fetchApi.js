@@ -35,4 +35,4 @@ const doFetch = async () => {
   }
 };
 
-doFetch();
+await doFetch();
