@@ -1,6 +1,6 @@
 //Naudojant tik JS, sukurkite lentelę ir į ją įrašykite duomenis (id, name, city, fav_color).
 
-const users = {};
+const state = {};
 
 const createCheckbox = () => {
   const checkbox = document.createElement("input");
@@ -22,9 +22,7 @@ const createSearchForm = () => {
 
   const searchButton = document.createElement("button");
   searchButton.textContent = "Search";
-  searchButton.setAttribute("type", "button");
   searchButton.setAttribute("id", "button");
-  document.body.append(searchButton);
 
   const form = document.createElement("form");
   form.append(input, searchButton);
@@ -63,6 +61,7 @@ const createTable = () => {
 
 function addToTable(users) {
   const tbody = document.querySelector("tbody");
+  tbody.innerHTML = "";
 
   users.forEach((user) => {
     const id = document.createElement("td");
@@ -100,25 +99,26 @@ document.querySelector("form").addEventListener("submit", (event) => {
   event.preventDefault();
   const searchString = document.getElementById("search").value.toLowerCase();
   addToTable(
-    users.filter((user) => user.name.toLowerCase().includes(searchString))
+    state.users.filter((user) => user.name.toLowerCase().includes(searchString))
   );
 });
 
 document.getElementById("isVipCheckbox").addEventListener("change", (event) => {
-  addToTable(event.target.checked ? users.filter((user) => user.vip) : users);
+  addToTable(
+    event.target.checked ? state.users.filter((user) => user.vip) : state.users
+  );
 });
 
-const doFetch = async () => {
+const getUsersList = async () => {
   try {
     const response = await fetch("https://magnetic-melon-yam.glitch.me");
     if (response.ok) {
-      const users = await response.json();
-      return users;
-      addToTable(users);
+      state.users = await response.json();
+      addToTable(state.users);
     }
   } catch (error) {
     console.error(error);
   }
 };
 
-doFetch();
+getUsersList();
