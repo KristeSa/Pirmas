@@ -113,7 +113,7 @@ const doFetch = async () => {
     const response = await fetch("https://magnetic-melon-yam.glitch.me");
     if (response.ok) {
       const users = await response.json();
-      console.log(users);
+      return users;
       addToTable(users);
     }
   } catch (error) {
