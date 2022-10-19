@@ -1,0 +1,13 @@
+table, tr, th {
+    border: 1px solid black;
+}
+
+header {
+    display: flex;
+}
+
+header a {
+    margin-right: 40px;
+    color: black;
+    font-weight: 500;
+}

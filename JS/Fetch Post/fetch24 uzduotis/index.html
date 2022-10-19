@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+
+  <header>
+    <div id="header-container">
+      <h2 id="header-title">Property list</h2>
+      <h4 id="header-description">See all the houses you want!</h4>
+    </div>
+  </header>
+
+  <body>
+    <div id="main-wrapper">
+      <div id="filter-container">
+        <p>Filter:</p>
+        <div id="buttons-container">
+          <div id="filter-buttons-container">
+            <button id="filter-button">Vilnius</button>
+            <button id="filter-button">Kaunas</button>
+            <button id="filter-button">Klaipėda</button>
+          </div>
+
+          <div id="add-property-button-container">
+            <button id="add-button">Add Property +</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="property-container" class="property-container"></div>
+    </div>
+
+    <script type="module" src="./modules/main.js"></script>
+  </body>
+</html>
