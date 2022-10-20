@@ -1,6 +1,6 @@
 import { getToDos } from "./getToDos.js";
 
-const tableElement = document.querySelector("table#toDo");
+const tableBody = document.querySelector("table#toDo");
 
 const addRow = (toDo) => {
   const { title, completed } = toDo; // ts pats kas title=todo.title
@@ -10,20 +10,17 @@ const addRow = (toDo) => {
   const rowElement = document.createElement("tr");
   const isCompletedCheckbox = document.createElement("input");
 
-  toDoTitleElement.textContent = toDo.title;
+  toDoTitleElement.textContent = title;
   isCompletedCheckbox.type = "checkbox";
-  isCompletedCheckbox.checked = newItem.completed;
+  isCompletedCheckbox.checked = completed;
 
-  completed.appendChild(isCompletedCheckbox);
+  toDoCompletedElement.append(isCompletedCheckbox);
   rowElement.append(toDoTitleElement, toDoCompletedElement);
-  tableElement.append(rowElement);
+  tableBody.append(rowElement);
 };
 
-const populateTable = async () => {
-  const toDoListElement = document.querySelector("#toDo>tbody");
-
+export const populateTable = async () => {
   const toDos = await getToDos();
-  toDos.forEach((toDoItem) => addRow(toDoItem, toDoListElement));
-};
 
-export { populateTable };
+  toDos.forEach((toDoItem) => addRow(toDoItem));
+};
