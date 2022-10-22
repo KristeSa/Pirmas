@@ -4,7 +4,7 @@ body {
 
 #header-container {
     width: 100%;
-    background-color: rgb(8, 117, 8);
+    background-color: #03d3b2;
     color: white;
     padding: 20px
 }
@@ -17,6 +17,7 @@ body {
 #header-description
  {
     margin-top: -20px;
+    font-weight: 400;
 }
 
 #main-wrapper {
@@ -30,7 +31,7 @@ margin-right: 80px;
 }
 
 #add-button {
-    background-color: rgb(8, 117, 8);
+    background-color: #03d3b2;
     color: white;
     
     border: 1px solid white;
@@ -52,6 +53,23 @@ margin-right: 80px;
     font-size: small;
 }
 
+#add-property-button-container {
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2.4rem;
+  }
+  
+  .add-property-button {
+    color: white;
+    background-color: #03d3b2;
+    border: 1px solid white;
+    border-radius: 6px;
+    align-items: center;
+    padding: 0.5rem 1.4rem;
+    text-decoration: none;
+  }
+
 #property-container {
     display: flex;
     gap: 1rem;
@@ -70,3 +88,32 @@ margin-right: 80px;
     width: 100%;
   }
 
+#add-property-form {
+    display: flex;
+    flex-direction: column;
+    margin-right: 15%;
+  margin-top: 2rem;
+  gap: 1rem;
+  width: 20rem;
+}
+
+#add-property-form label {
+    font-weight: bold;
+  }
+
+  #add-property-form input {
+    padding: 0.6rem;
+    border: 1px solid lightgray;
+    font-size: 1rem;
+    border-radius: 6px;
+  }
+
+  .addPropertyButton {
+    background-color: #03d3b2;
+    color: white;
+    padding: 10px;
+    border: 1px solid lightgray;
+    font-size: 1rem;
+    border-radius: 6px;
+    width: 8rem;
+  }
