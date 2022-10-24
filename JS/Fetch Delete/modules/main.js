@@ -1,4 +1,5 @@
 import { getProducts } from "./getProducts.js";
+//import { addProduct } from "./add.js";
 
 const products = await getProducts();
 console.log(products);
