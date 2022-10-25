@@ -9,13 +9,14 @@
   </head>
   <body>
     <h1>Pridėti prekę</h1>
-    <form>
+    <form id="form-container">
       <input id="image" placeholder="image" />
       <input id="title" placeholder="title" />
       <input type="number" id="price" placeholder="price" />
-      <button type="submit" id="add-product-button" href="index.html">
-        Add product
-      </button>
+
+      <div class="add-product-button">
+        <a id="addProduct">Add product</a>
+      </div>
     </form>
 
     <script type="module" src="./modules/add.js"></script>

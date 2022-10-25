@@ -1,5 +1,4 @@
 import { getProducts } from "./getProducts.js";
-//import { addProduct } from "./add.js";
 
 const products = await getProducts();
 console.log(products);
@@ -10,6 +9,7 @@ const renderProducts = () => {
   products.forEach((element) => {
     const img = document.createElement("img");
     img.src = element.image;
+    img.setAttribute("class", "product-image");
 
     const title = document.createElement("h4");
     title.setAttribute("class", "product-title");
