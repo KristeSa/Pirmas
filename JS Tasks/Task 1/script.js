@@ -8,24 +8,24 @@ pamatyti jo pateikto svorio kovertavimą į:
 Pastaba: atvaizdavimas turi būti matomas pateikus formą ir pateikiamas
 <div id="output"></div> viduje, bei turi turėti bent minimalų stilių;
 ------------------------------------------------------------------- */
-const userWeight = Number(document.querySelector("#search").value);
-const weightOutput = document.querySelector("#output");
+function handleFormSubmit(event) {
+  event.preventDefault();
+  const userWeight = Number(document.getElementById("search").value);
+  const weightOutput = document.querySelector("#output");
 
-function calcWeight() {
-  const weightInLb = (userWeight * 2.2046).toFixed(2);
-  console.log(weightInLb);
-  //   console.log(weightInLb);
-  //   const weightInGrams = (userWeight / 0.001).toFixed(2);
-  //   const weightInOz = (userWeight * 35.274).toFixed(2);
+  const weightInLb = Number((userWeight * 2.2046).toFixed(2));
+  const weightInGrams = Number((userWeight / 0.001).toFixed(2));
+  const weightInOz = Number((userWeight * 35.274).toFixed(2));
 
   const printWeightInLB = document.createElement("p");
-  //   const printWeightInGrams = document.createElement("p");
-  //   const printWeightInOz = document.createElement("p");
+  const printWeightInGrams = document.createElement("p");
+  const printWeightInOz = document.createElement("p");
 
-  printWeightInLB.textContent = weightInLb;
-  //   printWeightInGrams.textContent = weightInGrams;
-  //   printWeightInOz.textContent = weightInOz;
+  printWeightInLB.textContent = `You weight ${weightInLb} Lb`;
+  printWeightInGrams.textContent = `You weight ${weightInGrams} g`;
+  printWeightInOz.textContent = `You weight ${weightInOz} oz`;
 
-  weightOutput.append(printWeightInLB);
-  //return printWeightInLB, printWeightInGrams, printWeightInOz;
+  weightOutput.append(printWeightInLB, printWeightInGrams, printWeightInOz);
 }
+
+document.querySelector("form").addEventListener("submit", handleFormSubmit);

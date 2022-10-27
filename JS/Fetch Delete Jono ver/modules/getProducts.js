@@ -4,8 +4,8 @@ const getProducts = async () => {
     const products = await response.json();
 
     return products;
-  } catch (error) {
-    console.error(error);
+  } catch (err) {
+    console.error(err);
   }
 };
 
