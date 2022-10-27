@@ -12,13 +12,29 @@ turėti bent minimalų stilių ir būti responsive;
 -------------------------------------------------------------------------- */
 import { getUsers } from "./modules/getUsers.js";
 
-await getUsers();
+const users = await getUsers();
+console.log(users);
 
-const usersOutput = document.querySelector("#output");
+document.querySelector("#btn").addEventListener("click", () => {
+  const usersOutput = document.querySelector("#output");
+  const message = document.querySelector("#message");
 
-const showUsers = (users) => {
-  usersOutput.append(users);
-  return users;
-};
+  function showUsers(users) {
+    users.forEach((user) => {
+      const userLogin = document.createElement("p");
+      const userAvatar = document.createElement("img");
+      const userCard = document.createElement("div");
 
-document.querySelector("#btn").addEventListener("click", showUsers());
+      userLogin.textContent = user.login;
+      userAvatar.src = user.avatar_url;
+      message.innerHTML = "";
+      userLogin.setAttribute("id", "user-login");
+      userAvatar.setAttribute("id", "user-avatar");
+      userCard.setAttribute("id", "user-card");
+
+      userCard.append(userLogin, userAvatar);
+      usersOutput.append(userCard);
+    });
+  }
+  showUsers(users);
+});

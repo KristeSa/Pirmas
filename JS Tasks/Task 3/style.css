@@ -58,4 +58,24 @@
   padding: 30px;
   border-radius: 5px;
   background-color: #fff;
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#user-card {
+  flex-wrap: wrap;
+  width: 200px;
+  border: 1px solid grey;
+  padding: 10px;
+}
+
+#user-avatar {
+  width: 100%;
+}
+
+#user-login {
+font-size: medium;
+text-align: center;
+padding: 20px;
 }
