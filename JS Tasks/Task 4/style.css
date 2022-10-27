@@ -27,3 +27,13 @@
   margin-top: 50px;
   color: #333;
 }
+
+#output {
+  display: grid;
+  grid-template-columns: auto;
+  
+} 
+
+#brand-card {
+  width: 250px;
+}

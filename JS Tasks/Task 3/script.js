@@ -13,7 +13,6 @@ turėti bent minimalų stilių ir būti responsive;
 import { getUsers } from "./modules/getUsers.js";
 
 const users = await getUsers();
-console.log(users);
 
 document.querySelector("#btn").addEventListener("click", () => {
   const usersOutput = document.querySelector("#output");

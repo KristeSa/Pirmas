@@ -8,5 +8,9 @@ nurodomas gamintojas ir jo pagaminti modeliai.
 Pastaba: Sukurta kortelė, kurioje yra informacija apie automobilį (brand), turi 
 turėti bent minimalų stilių ir būti responsive;
 -------------------------------------------------------------------------- */
+import { getCars } from "./modules/getCars.js";
+import { showCars } from "./modules/showCars.js";
 
-const ENDPOINT = 'cars.json';
+const cars = await getCars();
+
+showCars(cars);
