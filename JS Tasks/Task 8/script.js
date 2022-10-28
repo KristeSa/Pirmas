@@ -35,3 +35,8 @@ console.log("Sum=" + calculator.sum());
 console.log("Sub=" + calculator.sub());
 console.log("Mul=" + calculator.mul());
 console.log("Div=" + calculator.div());
+
+alert("Sum=" + calculator.sum());
+alert("Sub=" + calculator.sub());
+alert("Mul=" + calculator.mul());
+alert("Div=" + calculator.div());
