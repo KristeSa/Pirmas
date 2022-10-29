@@ -27,6 +27,7 @@ document.querySelector("#btn").addEventListener("click", () => {
       userLogin.textContent = user.login;
       userAvatar.src = user.avatar_url;
       message.innerHTML = "";
+
       userLogin.setAttribute("id", "user-login");
       userAvatar.setAttribute("id", "user-avatar");
       userCard.setAttribute("id", "user-card");

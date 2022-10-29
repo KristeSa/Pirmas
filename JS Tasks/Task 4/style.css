@@ -28,12 +28,29 @@
   color: #333;
 }
 
+
 #output {
-  display: grid;
-  grid-template-columns: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  text-align: center;
   
 } 
 
 #brand-card {
-  width: 250px;
+  width: 470px;
+  padding: 15px;
+  margin: 15px;
+  border: 1px solid black;  
+}
+
+#car-brand {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#car-model {
+padding: 15px;
+overflow: auto;
 }

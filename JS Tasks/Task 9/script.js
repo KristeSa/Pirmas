@@ -10,15 +10,14 @@ Metodas:
 wasExpensive() - jeigu filmo "budget" yra daugiau nei 100 000 000 mln USD, tada grąžins true, kitu atveju false. 
 ------------------------------------------------------------------------------------------------------ */
 
-const movie = {
-  title,
-  director,
-  budget: function () {
-    const wasExpensive = this.budget > 100_000_000;
-    if (wasExpensive) {
-      return true;
-    } else {
-      return false;
-    }
-  },
-};
+class Movie {
+  constructor(title, director, budget) {
+    this.title = title;
+    this.director = director;
+    this.budget = budget;
+  }
+}
+
+const movie = new Movie("Avatar", "James Cameron", 250_000_000);
+const isExpensiveMovie = movie.budget > 100_000_000;
+console.log(isExpensiveMovie);
