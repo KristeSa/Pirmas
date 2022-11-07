@@ -1,0 +1,13 @@
+{
+    "name": "ca-1",
+    "version": "1.0.0",
+    "scripts": {
+        "type": "module",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon index.js"
+    },
+    "dependencies": {
+        "casual": "^1.6.2",
+        "nodemon": "^2.0.20"
+    }
+}
