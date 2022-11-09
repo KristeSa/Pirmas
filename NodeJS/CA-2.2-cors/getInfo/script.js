@@ -1,4 +1,4 @@
-const getCars = async () => {
+async function getCars(api) {
   try {
     const response = await fetch(api);
     const cars = await response.json();
@@ -7,6 +7,18 @@ const getCars = async () => {
   } catch (error) {
     console.error(error);
   }
-};
+}
 
-await getCars();
+getCars();
+
+const showCars = (cars) => {
+  cars.foreach((car) => {
+    const list = document.createElement("ul");
+    const carItem = document.createElement("li");
+
+    car.textContent = car;
+
+    list.append(carItem);
+    document.querySelector(".main-list").append(list);
+  });
+};
