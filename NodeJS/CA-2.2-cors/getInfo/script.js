@@ -1,24 +1,26 @@
-async function getCars(api) {
-  try {
-    const response = await fetch(api);
-    const cars = await response.json();
+const main = document.querySelector(".main-list");
+const list = document.createElement("ul");
 
-    return cars;
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-getCars();
-
-const showCars = (cars) => {
-  cars.foreach((car) => {
-    const list = document.createElement("ul");
+const doFetch = async () => {
+  const getCars = async () => {
+    try {
+      const response = await fetch("http://localhost:5005/cars");
+      const cars = await response.json();
+      return cars;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const cars = await getCars();
+  cars.forEach((car) => {
     const carItem = document.createElement("li");
+    carItem.textContent = car;
 
-    car.textContent = car;
+    //console.log(carItem);
 
     list.append(carItem);
-    document.querySelector(".main-list").append(list);
+    main.append(list);
   });
 };
+
+doFetch();
