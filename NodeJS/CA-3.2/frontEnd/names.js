@@ -18,12 +18,13 @@ const doFetch = async () => {
     const firstName = document.createElement("p");
     const lastName = document.createElement("p");
 
-    firstName.textContent = name.firstName;
-    lastName.textContent = name.lastName;
+    firstName.innerHTML = name.firstName;
+    lastName.innerHTML = name.lastName;
+    const stringifyName = firstName.innerHTML;
+    const stringifyLastname = lastName.innerHTML;
+    console.log(stringifyName);
 
-    const fullName = `${firstName} ${lastName}`;
-
-    console.log(fullName); // reikia paversti i stringa
+    const fullName = `${stringifyName} ${stringifyLastname}`;
 
     listItem.append(fullName);
     list.append(listItem);

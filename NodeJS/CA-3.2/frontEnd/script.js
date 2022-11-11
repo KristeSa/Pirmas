@@ -13,13 +13,13 @@ nameForm.addEventListener("submit", async (event) => {
         firstName: firstNameInput,
         lastName: lastNameInput,
       }),
-      // headers: {
-      //   "Content-Type": "application/json; charset=UTF-8",
-      // },
+      headers: {
+        "Content-Type": "application/json; charset=UTF-8",
+      },
     });
     if (response.ok) {
-      const route = location.pathname; // pvz. .../addProduct.html
-      const redirectRoute = route.replace("nameList", "index");
+      const route = location.pathname;
+      const redirectRoute = route.replace("index", "names");
       location.assign(redirectRoute);
     }
   } catch (error) {
