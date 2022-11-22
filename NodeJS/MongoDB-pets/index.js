@@ -52,12 +52,13 @@ app.post("/pet", async (req, res) => {
     res.status(500).send({ err });
   }
 });
-app.get("/pets/:order?", async (req, res) => {
+
+app.get("/pets/:types/:order?", async (req, res) => {
   const connection = await client.connect();
   const data = await connection
     .db(DB)
     .collection(DBCOLLECTION)
-    .find()
+    .find({ type: { $in: req.params.types?.split(",") } })
     .sort({ age: req.params.order?.toLowerCase() === "dsc" ? -1 : 1 })
     .toArray();
   await connection.close();
