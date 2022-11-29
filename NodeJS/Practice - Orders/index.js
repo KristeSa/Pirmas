@@ -96,46 +96,51 @@ app.delete("/order/:id", async (req, res) => {
   }
 });
 
-app.get("/orders", async (_, res) => {
-  const connection = await client.connect();
-  const orders = await connection
-    .db(DB)
-    .collection(DBCOLLECTION)
-    .find()
-    .toArray();
-  await connection.close();
-  return res.send(orders);
-});
+app.get("/orders", async (req, res) => {
+  const { deliveryType } = req.body;
 
-app.post("/orders", async (req, res) => {
-  //const { comments, dateCreated, dateFullfilled, products } = req.body;
-
-  //   if (!comments || !dateCreated || !dateFullfilled || !products) {
-  //     res.status(400).send("Insuficient order data").end();
-  //     return;
-  //   }
-
+  //prideti if
   try {
     const connection = await client.connect();
+    const ordersCount = await connection
+      .db(DB)
+      .collection(DBCOLLECTION)
+      .count({ deliveryType });
     const orders = await connection
       .db(DB)
       .collection(DBCOLLECTION)
-      .insertMany([
-        {
-          comments: "postbox",
-          dateCreated: "2022-11-22T09:46:13.000Z",
-          dateFullfilled: "2022-11-23T09:46:13.000Z",
-          products: ["Serum"],
-        },
-        {
-          comments: "courrier",
-          dateCreated: "2022-11-16T17:17:17.000Z",
-          dateFullfilled: "2022-11-20T10:57:23.000Z",
-          products: ["Toothbrush", "Mascara"],
-        },
-      ]);
+      .find()
+      .toArray();
+
     await connection.close();
-    return res.send(orders);
+
+    res.send({ ordersCount, orders });
+  } catch (err) {
+    res.status(500).send({ err }).end();
+    throw Error(err);
+  }
+});
+
+app.post("/orders", async (req, res) => {
+  const { postOrders } = req.body;
+
+  if (!Array.isArray(postOrders)) {
+    return res
+      .status(400)
+      .send({ message: "postOrders is not an array" })
+      .end();
+  }
+
+  try {
+    const connection = await client.connect();
+    const newOrders = await connection
+      .db(DB)
+      .collection(DBCOLLECTION)
+      .insertMany(postOrders);
+
+    await connection.close();
+
+    res.send(newOrders).end();
   } catch (error) {
     res.status(500).send({ error }).end();
   }
