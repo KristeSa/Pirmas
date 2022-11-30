@@ -13,35 +13,6 @@ const DBCOLLECTION = process.env.DBCOLLECTION;
 app.use(express.json());
 app.use(cors());
 
-app.get("/", async (req, res) => {
-  const connection = await client.connect();
-  const bothCategories = await connection
-    .db(DB)
-    .createView("categories", "products", [
-      {
-        $lookup: {
-          from: "categories",
-          localField: "category",
-          foreignField: "title",
-          as: "categoriesDocs",
-        },
-      },
-      {
-        project: {
-          _id: 0,
-          name: 1,
-          price: 1,
-          category: "$categoriesDocs.title",
-        },
-      },
-      { $unwind: "$category" },
-    ]);
-
-  await connection.close();
-
-  res.send(bothCategories).end();
-});
-
 app.get("/categories", async (req, res) => {
   const connection = await client.connect();
   const data = await connection
