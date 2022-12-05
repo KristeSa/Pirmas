@@ -5,8 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script src="../index.js"></script>
+    <header>
+        <nav>
+            <a href="index.html">Memberships</a>
+            <a href="users.html">Users</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="main-wrapper">
+            <div class="top-section">
+                <div class="header-text">
+            <h1>User Management</h1>
+            <h4>Sorting by Name: ASC</h4>
+            <div id="add-data">
+                <button id="new-button">
+                + New User
+            </button>
+            </div>
+            <div class="user-card"></div>
+        </div>
+
+    </main>
+
+
+    <script src="./getUsers.js"></script>
 </body>
 </html>

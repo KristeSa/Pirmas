@@ -76,30 +76,6 @@ app.delete("/membership/:id", async (req, res) => {
 });
 
 app.get("/users/:order?", async (req, res) => {
-  //   const pipeline = [
-  //     {
-  //       $lookup: {
-  //         from: "services",
-  //         let: { searchId: { $toObjectId: "$service_id" } },
-
-  //         pipeline: [
-  //           {
-  //             $match: {
-  //               $expr: {
-  //                 $eq: ["$_id", "$$searchId"],
-  //               },
-  //             },
-  //           },
-
-  //           { $project: { _id: 0, name: 1 } },
-  //         ],
-
-  //         as: "service_id",
-  //       },
-  //     },
-  //   ];
-  //const usersWithMembershipsName = [];
-
   try {
     const connection = await client.connect();
     const orderedUsers = await connection

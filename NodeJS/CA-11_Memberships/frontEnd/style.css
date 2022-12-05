@@ -43,7 +43,7 @@ h4 {
     display: flex;
 }
 
-#new-membership-button {
+#new-button {
     align-self: center;
     width: auto;
     font-size: smaller;
@@ -54,7 +54,18 @@ h4 {
     border-radius: 3px;
 }
 
-#new-membership {
+#cancel {
+    align-self: center;
+    width: auto;
+    font-size: smaller;
+    color: beige;
+    padding: 7px;
+    background-color: white;
+    border: 0.5px white solid;
+    border-radius: 3px;
+}
+
+#add-data {
     display: flex;
 }
 
@@ -76,6 +87,25 @@ p {
     font-size: x-small;
 }
 
+form {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+input {
+    width: 250px;
+}
+
+label {
+    width: 200px;
+}
+
+fieldset {
+    border: none;
+
+}
+
 .fa-solid {
     display: flex;
     justify-content: flex-end;
@@ -88,3 +118,4 @@ footer {
     padding: 10px;
     background-color: rgb(217, 206, 206);
 }
+
