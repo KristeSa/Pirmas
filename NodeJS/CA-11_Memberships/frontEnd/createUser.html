@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Memberships</a>
+            <a href="users.html">Users</a>
+        </nav>
+    </header>
+
+    <div class="main-wrapper">
+        <h1>Create User</h1>
+        <form>
+            <fieldset>
+            <label for="first-name">First Name</label>
+            <input id="first-name" placeholder="First Name">
+        </fieldset>
+        <fieldset>
+            <label for="last-name">Last Name</label>
+            <input id="last-name" placeholder="Last Name">
+        </fieldset>
+        <fieldset>
+            <label for="email">Email adress</label>
+            <input id="email" placeholder="Email Adress">
+        </fieldset>
+        <fieldset>
+            <label for="membership">Change Membership</label>
+            <select id="memberships">
+            </select>
+        </fieldset>
+            <button id="cancel">Cancel</button>
+            <button type="submit" id="new-button">New User</button>       
+        </form>
+       
+        
+    </div>
+
+    <footer>Copyright(c)2022 Membership Manager</footer>
+
+    <script src="./createUser.js"></script>
+</body>
+</html>

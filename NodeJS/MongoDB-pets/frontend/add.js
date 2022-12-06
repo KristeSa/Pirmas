@@ -1,4 +1,4 @@
-const addPet = document.querySelector("#add-pet");
+const addPet = document.querySelector("#form");
 
 addPet.addEventListener("submit", async (event) => {
   event.preventDefault();
