@@ -1,7 +1,5 @@
 let users = [];
 
-const userCard = document.querySelector(".user-card");
-
 const getUsers = async () => {
   try {
     const response = await fetch("http://127.0.0.1:5040/users");
@@ -16,6 +14,8 @@ const getUsers = async () => {
 getUsers();
 
 function showUsers(users) {
+  const userCard = document.querySelector(".user-card");
+
   users.forEach((user) => {
     const name = document.createElement("h5");
     const surname = document.createElement("h5");
