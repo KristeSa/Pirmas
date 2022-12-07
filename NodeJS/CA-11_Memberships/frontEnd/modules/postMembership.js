@@ -20,6 +20,7 @@ addMembership.addEventListener("submit", async (event) => {
       const successText = document.createElement("p");
       successText.textContent = "Sėkmingai pateikėte duomenis";
       document.body.append(successText);
+      addMembership.reset();
     } catch (error) {
       console.error(error);
     }
@@ -28,6 +29,6 @@ addMembership.addEventListener("submit", async (event) => {
 
 const clearMembershipForm = document.getElementById("cancel");
 
-clearMembershipForm.addEventListener("click", (event) => {
-  addMembership.innerHTML = " ";
+clearMembershipForm.addEventListener("click", () => {
+  addMembership.reset();
 });

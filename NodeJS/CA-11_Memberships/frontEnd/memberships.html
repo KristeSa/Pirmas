@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memberships</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://kit.fontawesome.com/750fc2e4ed.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
@@ -12,7 +16,7 @@
 <body>
     <header>
         <nav>
-            <a href="index.html">Memberships</a>
+            <a href="memberships.html">Memberships</a>
             <a href="users.html">Users</a>
         </nav>
     </header>
@@ -21,11 +25,11 @@
     <div class="top-section">
         <div class="header-text">
     <h1>Membership Management</h1>
-    <h4>Here you can manage your membership packages. Note: Make sure you ae not deactivating packages assigned to active users.
+    <h4>Here you can manage your membership packages. Note: Make sure you are not deactivating packages assigned to active users.
     </h4>
     </div>
     <div id="add-data">
-        <button id="new-button">
+        <button id="new-button" onclick="location.href='./createMembership.html'">
         + New Membership
     </button>
     </div>
@@ -36,7 +40,7 @@
         <div id="membership-card">
         </div>
            <hr>
-           <i class="fa-solid fa-trash"></i>
+           <i class="fa-solid fa-trash" ></i>
         </div>
     </section>
 
@@ -44,6 +48,6 @@
 
     <footer>Copyright(c)2022 Membership Manager</footer>
 
-    <script src="./getMemberships.js"></script>
+    <script type="module" src="./modules/getMemberships.js"></script>
 </body>
 </html>

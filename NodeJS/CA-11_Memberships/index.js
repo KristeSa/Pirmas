@@ -12,13 +12,14 @@ const DB = process.env.DB;
 app.use(express.json());
 app.use(cors());
 
-app.get("/memberships", async (req, res) => {
+app.get("/memberships", async (_, res) => {
   try {
     const connection = await client.connect();
     const memberships = await connection
       .db(DB)
       .collection("services")
       .find()
+      .sort({ price: 1 })
       .toArray();
     await connection.close();
 
@@ -82,7 +83,7 @@ app.get("/users/:order?", async (req, res) => {
       .db(DB)
       .collection("users")
       .find()
-      .sort({ name: req.params.order?.toLowerCase() === "dsc" ? -1 : 1 })
+      .sort({ surname: req.params.order?.toLowerCase() === "DSC" ? -1 : 1 })
       .toArray();
 
     const services = await connection
@@ -98,12 +99,6 @@ app.get("/users/:order?", async (req, res) => {
 
       return { ...user, service_id: name };
     });
-
-    // const userMembershipsCursor = orderedUsers.aggregate(pipeline);
-
-    // for await (const doc of userMembershipsCursor) {
-    //   usersWithMembershipsName.push(doc);
-    // }
 
     await connection.close();
 

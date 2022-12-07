@@ -1,3 +1,8 @@
+body {
+    font-family: "Inter", sans-serif;
+    color: black;
+}
+
 nav {
     text-align: center;
     font-size: smaller;
@@ -10,6 +15,7 @@ a {
 }
 
 a :hover {
+    cursor: pointer;
     color: rgb(125, 34, 204);
 }
 
@@ -35,7 +41,7 @@ h3 {
 
 h4 {
     font-size: smaller;
-    font-weight: 100;
+    color: black;
     width: 80%;
 }
 
@@ -110,6 +116,10 @@ fieldset {
     display: flex;
     justify-content: flex-end;
     color: red;
+}
+
+.fa-sort i {
+    color: black;
 }
 
 footer {

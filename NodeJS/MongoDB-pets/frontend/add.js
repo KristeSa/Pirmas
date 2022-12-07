@@ -20,6 +20,7 @@ addPet.addEventListener("submit", async (event) => {
       const successText = document.createElement("p");
       successText.textContent = "Sėkmingai pateikėte duomenis";
       document.body.append(successText);
+      return response;
     } catch (error) {
       console.error(error);
     }
