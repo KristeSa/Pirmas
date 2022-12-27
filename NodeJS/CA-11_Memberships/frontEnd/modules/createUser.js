@@ -1,3 +1,6 @@
+const selectMembership = document.querySelector("#memberships");
+const memberships = [];
+
 const getMemberships = async () => {
   try {
     const response = await fetch("http://127.0.0.1:5040/memberships");
@@ -9,24 +12,15 @@ const getMemberships = async () => {
     throw Error({ error });
   }
 };
-
-const populateMemberships = async () => {
-  const memberships = await getMemberships();
-
-  const selectMembership = document.querySelector("#memberships");
-  selectMembership.replaceChildren();
+getMemberships();
 
   memberships.forEach((membership) => {
-    const name = membership;
     const newMembership = document.createElement("option");
-    newMembership.value = name;
-    newMembership.innerHTML = name;
-
-    selectMembership.append(newMembership);
+    newMembership.innerHTML = membership.name;
+    selectMembership.appendChild(newMembership);
   });
 };
-
-await populateMemberships();
+populateMemberships(memberships);
 
 const addUser = document.querySelector("form");
 
@@ -46,8 +40,9 @@ const newUser = async () => {
 
   if (response.ok) {
     try {
-      alert("Sėkmingai pateikėte duomenis");
-      addUser.reset();
+      const successText = document.createElement("p");
+      successText.textContent = "Sėkmingai pateikėte duomenis";
+      document.body.append(successText);
     } catch (error) {
       console.error(error);
     }
@@ -61,6 +56,7 @@ addUser.addEventListener("submit", async (event) => {
 });
 
 const clearUserForm = document.getElementById("cancel");
-clearUserForm.addEventListener("click", () => {
-  addUser.reset();
+
+clearUserForm.addEventListener("click", (event) => {
+  addUser.innerHTML = " ";
 });

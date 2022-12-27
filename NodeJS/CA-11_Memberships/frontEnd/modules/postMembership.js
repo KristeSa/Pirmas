@@ -19,6 +19,7 @@ addMembership.addEventListener("submit", async (event) => {
     try {
       const successText = document.createElement("p");
       successText.textContent = "Sėkmingai pateikėte duomenis";
+      addMembership.reset();
       document.body.append(successText);
       addMembership.reset();
     } catch (error) {
@@ -29,6 +30,10 @@ addMembership.addEventListener("submit", async (event) => {
 
 const clearMembershipForm = document.getElementById("cancel");
 
+<<<<<<< HEAD
 clearMembershipForm.addEventListener("click", () => {
+=======
+clearMembershipForm.addEventListener("click", (event) => {
+>>>>>>> a87aace (nauji failai)
   addMembership.reset();
 });

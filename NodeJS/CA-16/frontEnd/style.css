@@ -1,0 +1,79 @@
+body {
+    color: black;
+    text-align: center;
+}
+
+header {
+    background-color: rgba(236, 221, 221, 0.582);
+    text-align: left;
+    padding-left: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+}
+
+nav a {
+    text-decoration: none;
+    color: grey;
+    padding-left: 30px;
+}
+
+#output {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    gap: 10px;
+}
+
+.car-card {
+    flex: 1 1 30%;
+    border: 1px solid rgb(189, 185, 185);
+    margin: 10px;
+}
+
+#car-image {
+    height: 120px;
+}
+
+#card-numberplates {
+font-weight: 400;
+}
+
+#car-title {
+    color: grey;
+    font-weight: 200;
+}
+
+#car-delete {
+    color: grey;
+    text-align: left;
+    margin-left: 50px;
+}
+
+#add-car-form {
+    background-color: grey;
+    padding: 50px;
+}
+
+#add-car-form input {
+    width: 50%;
+    justify-content: center;
+    align-content: center;
+    padding: 10px;
+    margin: 5px;
+}
+
+#add-car {
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 460px) {
+    .car-card {
+        flex: 1;
+    }   
+}

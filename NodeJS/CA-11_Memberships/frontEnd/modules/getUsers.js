@@ -26,16 +26,26 @@ const getUsers = async () => {
     const response = await fetch(`http://127.0.0.1:5040/users/${sortOrder}`);
     const users = await response.json();
 
+<<<<<<< HEAD
     await showUsers(users);
+=======
+    showUsers(users);
+>>>>>>> a87aace (nauji failai)
     console.log(users);
   } catch (error) {
     console.error(error);
   }
 };
 
+<<<<<<< HEAD
 getUsers();
 
 document.querySelector(".fa-sort").addEventListener("click", (e) => {
+=======
+await getUsers();
+
+document.querySelector(".fa-sort").addEventListener("click", async (e) => {
+>>>>>>> a87aace (nauji failai)
   const text = e.target.textContent;
   if (text.includes("ASC")) {
     e.target.textContent = text.replace("ASC", "DSC");
@@ -44,5 +54,9 @@ document.querySelector(".fa-sort").addEventListener("click", (e) => {
     e.target.textContent = text.replace("DSC", "ASC");
     sortOrder = "ASC";
   }
+<<<<<<< HEAD
   getUsers();
+=======
+  await getUsers();
+>>>>>>> a87aace (nauji failai)
 });
