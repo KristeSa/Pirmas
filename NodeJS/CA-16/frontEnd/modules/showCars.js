@@ -7,12 +7,14 @@ const showCars = (cars) => {
     const carTitle = document.createElement("h3");
     const carImage = document.createElement("img");
     const carPrice = document.createElement("h4");
-    const carDelete = document.createElement("p");
+    const carDelete = document.createElement("button");
 
     carNumberplates.innerHTML = car.numberplates;
     carTitle.innerHTML = car.title;
     carImage.src = car.image;
     carPrice.innerHTML = car.price;
+    carDelete.id = car.id;
+
     carDelete.innerHTML = "DELETE";
 
     carBrandCard.setAttribute("class", "car-card");
@@ -31,24 +33,27 @@ const showCars = (cars) => {
     );
     output.append(carBrandCard);
 
-    //const id = car.id;
+    const deleteCar = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:5008/car/${carDelete.id}`,
+          {
+            method: "DELETE",
+          }
+        );
 
-    // const deleteCar = async () => {
-    //   try {
-    //     const response = await fetch(`http://localhost:5008/car/${id}`, {
-    //       method: "DELETE",
-    //     });
+        const isCarDeleted = response.ok;
 
-    //     const isCarDeleted = response.ok;
+        if (isCarDeleted) {
+          alert("Car deleted succesfully");
+          await getCars();
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    };
 
-    //     if (isCarDeleted) {
-    //       await getCars();
-    //     }
-    //   } catch (err) {
-    //     console.log(err);
-    //   }
-    // };
-    // carDeleteButton.addEventListener("click", deleteCar);
+    carDelete.addEventListener("click", deleteCar);
   });
 };
 
