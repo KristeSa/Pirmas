@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const PORT = +process.env.serverPort || 5008;
+const PORT = +process.env.serverPort || 5070;
 const MSQL_CONFIG = {
   host: process.env.host,
   user: process.env.user,
@@ -16,8 +16,8 @@ const MSQL_CONFIG = {
   port: process.env.port,
 };
 
-app.get("/pets", async (req, res) => {
-  const query = "SELECT * FROM pets";
+const getPets = async (_, res) => {
+  const query = "SELECT * FROM pets WHERE isArchived = 0";
 
   try {
     const con = await mysql.createConnection(MSQL_CONFIG);
@@ -31,18 +31,18 @@ app.get("/pets", async (req, res) => {
     res.status(500).send({ error }).end();
     console.error(error);
   }
-});
+};
 
-app.post("/pet", async (req, res) => {
+const postPet = async (req, res) => {
   const name = mysql.escape(req.body.name.trim());
   const dob = mysql.escape(req.body.dob.trim());
-  const clientEmail = mysql.escape(req.body.clientEmail.trim());
+  const client_email = mysql.escape(req.body.client_email.trim());
 
-  if (!name || !dob || !clientEmail) {
+  if (!name || !dob || !client_email) {
     return res.status(400).send("Pet data is mising").end();
   }
 
-  if (typeof name !== "string" || typeof clientEmail !== "string") {
+  if (typeof name !== "string" || typeof client_email !== "string") {
     return res.status(404).send("Pet name or Client Email are not strings");
   }
 
@@ -50,7 +50,7 @@ app.post("/pet", async (req, res) => {
     const con = await mysql.createConnection(MSQL_CONFIG);
 
     await con.execute(
-      `INSERT INTO pets (name, dob, client_email) VALUES (${name}, ${dob}, ${clientEmail})`
+      `INSERT INTO pets (name, dob, client_email) VALUES (${name}, ${dob}, ${client_email})`
     );
 
     await con.end();
@@ -60,22 +60,31 @@ app.post("/pet", async (req, res) => {
     res.status(500).send(error).end();
     return console.error(error);
   }
-});
+};
 
-app.delete("/pet/:id", async (req, res) => {
+const deletePet = async (req, res) => {
   const id = mysql.escape(req.params.id.trim());
   const cleanId = +id.replaceAll("'", "");
 
-  const query = "ALTER TABLE pets MODIFY COLUMN isArchived VALUES (1)";
+  const query = `UPDATE pets SET isArchived = 1 WHERE id = ${cleanId}`;
 
   if (!cleanId) {
     return res.status(400).send(`Id was not provided`).end();
+  }
+
+  if (typeof cleanId !== "number" || cleanId < 0 || Number.isNaN(cleanId)) {
+    return res.status(400).send("Please provide correct ID");
+  }
+
+  if (!cleanId.length) {
+    return res.status(404).send(`${cleanId} is not found`).end();
   }
 
   try {
     const con = await mysql.createConnection(MSQL_CONFIG);
 
     const result = (await con.execute(query))[0];
+
     await con.end();
 
     if (!result.affectedRows) {
@@ -87,8 +96,6 @@ app.delete("/pet/:id", async (req, res) => {
     res.status(500).send(error).end();
     return console.error(error);
   }
-});
+};
 
-app.listen(PORT, () => {
-  console.log(`Server is running on ${PORT}`);
-});
+module.exports = { getPets, postPet, deletePet };
