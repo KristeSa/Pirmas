@@ -2,7 +2,6 @@ require("./config");
 
 const express = require("express");
 const cors = require("cors");
-const mysql = require("mysql2/promise");
 const app = express();
 const PORT = +process.env.serverPort || 5070;
 
@@ -14,23 +13,15 @@ const prescriptions = require("./routes/v1/prescriptions");
 app.use(express.json());
 app.use(cors());
 
-app.get("/pets", pets.getPets);
+console.log(pets);
 
-app.post("/pet", pets.postPet);
+app.use("/v1/pets", pets);
 
-app.delete("pets/:id", pets.deletePet);
+app.use("/v1/meds", meds);
 
-app.get("/meds", meds.getMeds);
+app.use("/v1/logs", logs);
 
-app.post("/med", meds.postMeds);
-
-app.get("/logs", logs.getLogs);
-
-app.post("/log", logs.postLog);
-
-app.get("/prescriptions", prescriptions.getPrescriptions);
-
-app.post("/prescription", prescriptions.postPrescription);
+app.use("/prescriptions", prescriptions);
 
 app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);

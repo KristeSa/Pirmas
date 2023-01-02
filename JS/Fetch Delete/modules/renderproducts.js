@@ -19,14 +19,14 @@ const renderProducts = (products) => {
     const card = document.createElement("div");
     card.setAttribute("class", "product-card");
 
-    const button = document.createElement("button");
-    button.setAttribute("id", "delete-button");
-    button.textContent = "Ištrinti";
-    button.addEventListener("click", () => deleteProduct(id));
+    const  = document.createElement("");
+    .setAttribute("id", "delete-");
+    .textContent = "Ištrinti";
+    .addEventListener("click", () => deleteProduct(id));
 
     card.id = `product-${id}`;
 
-    card.append(img, title, price, button);
+    card.append(img, title, price, );
 
     productCard.append(card);
   });

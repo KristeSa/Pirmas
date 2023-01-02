@@ -1,13 +1,8 @@
-require("../../config");
 const express = require("express");
-const cors = require("cors");
+const router = express.Router();
+
 const mysql = require("mysql2/promise");
-const app = express();
 
-app.use(express.json());
-app.use(cors());
-
-const PORT = +process.env.serverPort || 5070;
 const MSQL_CONFIG = {
   host: process.env.host,
   user: process.env.user,
@@ -62,40 +57,35 @@ const postPet = async (req, res) => {
   }
 };
 
-const deletePet = async (req, res) => {
-  const id = mysql.escape(req.params.id.trim());
-  const cleanId = +id.replaceAll("'", "");
+const archievePet = async (req, res) => {
+  const id = +mysql.escape(req.params.id).replaceAll("'", "");
 
-  const query = `UPDATE pets SET isArchived = 1 WHERE id = ${cleanId}`;
+  const query = `UPDATE pets SET isArchived = 1 WHERE id = ${id}`;
 
-  if (!cleanId) {
-    return res.status(400).send(`Id was not provided`).end();
+  if (!id) {
+    return res.status(404).send(`Id was not provided`).end();
   }
 
-  if (typeof cleanId !== "number" || cleanId < 0 || Number.isNaN(cleanId)) {
-    return res.status(400).send("Please provide correct ID");
-  }
-
-  if (!cleanId.length) {
-    return res.status(404).send(`${cleanId} is not found`).end();
+  if (typeof id !== "number" || id < 0 || Number.isNaN(id)) {
+    return res.status(404).send("Please provide correct ID").end();
   }
 
   try {
     const con = await mysql.createConnection(MSQL_CONFIG);
 
-    const result = (await con.execute(query))[0];
+    await con.execute(query)[0];
 
     await con.end();
 
-    if (!result.affectedRows) {
-      return res.status(404).send("Pet is not archieved").end();
-    }
-
-    res.status(202).send(`Pet ${cleanId} is archieved`).end();
+    res.status(202).send(`Pet ${id} is archieved`).end();
   } catch (error) {
     res.status(500).send(error).end();
     return console.error(error);
   }
 };
 
-module.exports = { getPets, postPet, deletePet };
+router.get("/", getPets);
+router.post("/", postPet);
+router.delete("/:id", archievePet);
+
+module.exports = router;

@@ -1,13 +1,7 @@
-require("../../config");
 const express = require("express");
-const cors = require("cors");
+const router = express.Router();
 const mysql = require("mysql2/promise");
-const app = express();
 
-app.use(express.json());
-app.use(cors());
-
-const PORT = +process.env.serverPort || 5070;
 const MSQL_CONFIG = {
   host: process.env.host,
   user: process.env.user,
@@ -67,4 +61,7 @@ const postLog = async (req, res) => {
   }
 };
 
-module.exports = { getLogs, postLog };
+router.get("/", getLogs);
+router.post("/", postLog);
+
+module.exports = router;

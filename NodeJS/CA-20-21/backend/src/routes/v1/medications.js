@@ -1,11 +1,6 @@
-require("../../config");
 const express = require("express");
-const cors = require("cors");
+const router = express.Router();
 const mysql = require("mysql2/promise");
-const app = express();
-
-app.use(express.json());
-app.use(cors());
 
 const PORT = +process.env.serverPort || 5070;
 const MSQL_CONFIG = {
@@ -63,4 +58,7 @@ const postMeds = async (req, res) => {
   }
 };
 
-module.exports = { getMeds, postMeds };
+router.get("/", getMeds);
+router.post("/", postMeds);
+
+module.exports = router;
