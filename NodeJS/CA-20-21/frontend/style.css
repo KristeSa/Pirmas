@@ -29,6 +29,11 @@ nav a {
     align-items: center;
 }
 
+#buttons-menu {
+   text-align: left;
+
+}
+
 h1 {
     color: grey;
 }
@@ -50,7 +55,7 @@ h1 {
 }
 
 button {
-    width: 4rem;
+    width: auto;
     background-color: rgb(219, 106, 0);
     font-size: 10px;
     color: white;

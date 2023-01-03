@@ -1,8 +1,20 @@
-import { getLogs } from "./getLogs.js";
+//import { getLogs } from "./getLogs.js";
 
-const search_query = window.location.search;
-const pet_id_query = new URLSearchParams(search_query);
-const pet_id = pet_id_query.get("id");
+async function getLogs() {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const id = urlParams.get("id");
+  console.log(id);
+
+  try {
+    const response = await fetch(`http://localhost:5070/v1/logs?id=${id}`);
+    const logs = await response.json();
+
+    return logs;
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 const logs = await getLogs();
 
@@ -12,28 +24,27 @@ const renderPetLog = () => {
   petLogContainer.replaceChildren();
 
   logs.forEach((log) => {
-    const { name, description, status } = log;
+    const { name, dob, description, status } = log;
 
-    const logsButton = document.createElement("button");
-    const prepButton = document.createElement("button");
     const petCard = document.createElement("div");
+    const petDob = document.createElement("h5");
     const logDescription = document.createElement("h3");
     const logStatus = document.createElement("h5");
     const logDate = document.createElement("h5");
 
     logDescription.textContent = description;
     logStatus.textContent = status;
-    //pet_id.textContent = pet_id;
+    petDob.textContent = dob;
     petNameSpan.textContent = name;
-    //logDate.textContent = NewDate().toLocaleDateString();
-    logsButton.textContent = "LOGS";
-    prepButton.textContent = "PRESCRIPTIONS";
+    logDate.textContent = new Date().toLocaleDateString();
 
-    petCard.append(logDescription, logStatus, name, logDate);
+    petCard.setAttribute("class", "pet-card");
+
+    petCard.append(logDescription, logStatus, name, petDob, logDate);
     petLogContainer.append(petCard);
   });
 };
 
 renderPetLog();
 
-export { renderPetLog };
+//export { renderPetLog };

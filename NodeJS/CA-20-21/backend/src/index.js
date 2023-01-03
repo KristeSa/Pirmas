@@ -13,8 +13,6 @@ const prescriptions = require("./routes/v1/prescriptions");
 app.use(express.json());
 app.use(cors());
 
-console.log(pets);
-
 app.use("/v1/pets", pets);
 
 app.use("/v1/meds", meds);

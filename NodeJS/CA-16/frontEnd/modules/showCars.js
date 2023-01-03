@@ -22,7 +22,7 @@ const showCars = (cars) => {
     carTitle.setAttribute("id", "car-title");
     carImage.setAttribute("id", "car-image");
     carPrice.setAttribute("id", "car-price");
-    carDelete.setAttribute("id", "car-delete");
+    //carDelete.setAttribute("id", "car-delete");
 
     carBrandCard.append(
       carNumberplates,

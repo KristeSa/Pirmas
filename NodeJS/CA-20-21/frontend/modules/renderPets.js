@@ -27,9 +27,6 @@ const renderPets = () => {
     petCard.setAttribute("class", "pet-card");
     petDob.setAttribute("id", "pet-dob");
     petClientEmail.setAttribute("id", "pet-client-email");
-    viewLogButton.setAttribute("id", "view-log-button");
-    deleteButton.setAttribute("id", "delete-button");
-    deleteButton.setAttribute("method", "delete");
 
     petCard.append(
       petName,
@@ -39,6 +36,15 @@ const renderPets = () => {
       deleteButton
     );
     petsContainer.append(petCard);
+
+    viewLogButton.addEventListener("click", () => {
+      const route = location.pathname;
+      const redirectRoute = route.replace(
+        "index.html",
+        `log.html?=${viewLogButton.id}`
+      );
+      location.assign(redirectRoute);
+    });
 
     const archievePet = async () => {
       try {

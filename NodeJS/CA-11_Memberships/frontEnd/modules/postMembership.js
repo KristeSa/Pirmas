@@ -30,10 +30,6 @@ addMembership.addEventListener("submit", async (event) => {
 
 const clearMembershipForm = document.getElementById("cancel");
 
-<<<<<<< HEAD
-clearMembershipForm.addEventListener("click", () => {
-=======
 clearMembershipForm.addEventListener("click", (event) => {
->>>>>>> a87aace (nauji failai)
   addMembership.reset();
 });
