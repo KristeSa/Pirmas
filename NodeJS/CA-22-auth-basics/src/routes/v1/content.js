@@ -1,10 +1,11 @@
-require("../../config");
+import express from "express";
+import { isLoggedIn } from "../../middleware.js";
 
-const { Router } = require("express");
-const express = require("express");
+const router = express.Router();
 
-Router.get("/", (req, res) => {
+router.get("/", isLoggedIn, (req, res) => {
+  console.log(req.headers);
   res.send("Route");
 });
 
-module.exports = router;
+export default router;

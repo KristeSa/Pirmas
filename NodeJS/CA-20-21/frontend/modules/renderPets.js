@@ -41,7 +41,7 @@ const renderPets = () => {
       const route = location.pathname;
       const redirectRoute = route.replace(
         "index.html",
-        `log.html?=${viewLogButton.id}`
+        `log.html?id=${viewLogButton.id}`
       );
       location.assign(redirectRoute);
     });

@@ -4,7 +4,7 @@ async function getLogs() {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const id = urlParams.get("id");
-  console.log(id);
+  console.log({ id, urlParams }, location.href);
 
   try {
     const response = await fetch(`http://localhost:5070/v1/logs?id=${id}`);
