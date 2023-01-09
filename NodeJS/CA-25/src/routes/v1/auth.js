@@ -1,14 +1,10 @@
-import { config } from "dotenv";
-config();
-
 import express from "express";
 import Joi from "Joi";
 import bcrypt from "bcryptjs";
 import mysql from "mysql2/promise";
 import jwt from "jsonwebtoken";
 
-const jwtSecret = process.env.jwtSecret;
-const MSQL_CONFIG = process.env.MSQL_CONFIG
+import { MSQL_CONFIG, jwtSecret } from "../../config.js";
 
 const router = express.Router();
 
@@ -36,7 +32,7 @@ router.post("/register", async (req, res) => {
       VALUES (${mysql.escape(userData.email)}, '${hashedPassword}')
       `);
     await con.end();
-    console.log({ data });
+
     return res.send(data).end();
   } catch (err) {
     console.log(err);
@@ -65,9 +61,9 @@ router.post("/login", async (req, res) => {
       `);
     await con.end();
 
-    // if (!data.length) {
-    //   return res.status(400).send({ err: "Incorrect email or password" }).end();
-    // }
+    if (data.length === 0) {
+      return res.status(400).send({ err: "Incorrect email or password" }).end();
+    }
 
     const isAuth = bcrypt.compareSync(userData.password, data[0].password);
 

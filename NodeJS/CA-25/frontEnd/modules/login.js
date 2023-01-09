@@ -17,7 +17,7 @@ document.getElementById("login").addEventListener("submit", (e) => {
 
       localStorage.setItem("token", data.token);
       const route = location.pathname;
-      const redirectRoute = route.replace("login.html", "index.html");
+      const redirectRoute = route.replace("login.html", "tutorials.html");
       location.assign(redirectRoute);
     })
     .catch((err) => console.log(err));
