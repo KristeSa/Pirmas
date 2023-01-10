@@ -10,7 +10,7 @@ async function getTutorials() {
     const tutorials = await response.json();
 
     if (response.status >= 400) {
-      alert(content.error);
+      alert("Please login");
       return window.location.assign(`./login.html`);
     }
 
