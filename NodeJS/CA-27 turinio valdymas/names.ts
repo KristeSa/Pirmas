@@ -13,16 +13,6 @@ const MSQL_CONFIG = {
     port: +process.env.port,
   };
 
-export const getRandomName = async (req, res) ={
-const userName = req.body.name.first
-
-try {
-   
-}
-
-}
-
-
 export const getNames = async (_, res) => {
     const query = "SELECT * FROM names";
 

@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "opening_hours",
+  "info": {
+    "singularName": "opening-hour",
+    "pluralName": "opening-hours",
+    "displayName": "opening_hours"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "days": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
