@@ -2,7 +2,6 @@
   "name": "nodejs-exam",
   "version": "1.0.0",
   "type": "module",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -23,5 +22,6 @@
     "joi": "^17.7.0",
     "jsonwebtoken": "^9.0.0",
     "mysql2": "^3.0.1"
-  }
+  },
+  "description": ""
 }

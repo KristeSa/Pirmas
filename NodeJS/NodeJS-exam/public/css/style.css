@@ -36,6 +36,16 @@ h3 {
     font-size: medium;
 }
 
+h4 {
+    text-align: center;
+    padding-bottom: 2.5rem;
+}
+
+h5 {
+    text-align: center;
+    padding-top: 3rem;
+}
+
 form {
     box-sizing: border-box;
     padding: 2rem;
@@ -46,7 +56,7 @@ form {
     gap: 1rem;
 }
 
-.register-input, .login-input {
+.register-input, .login-input, .group-id-input, .bill-input {
     display: grid;
 }
 
@@ -76,3 +86,23 @@ a {
 a:hover {
     color: blue;
 }
+
+#group-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.group-card {
+    width: 10rem;
+    text-align: center;
+    padding: 1rem 3rem;
+    border: 1px solid rgb(233, 229, 229) 
+}
+
+#group-id-input-form, #bill-input-form {
+    border: none;
+    width: 40%;
+    margin: 0 auto;
+}
+

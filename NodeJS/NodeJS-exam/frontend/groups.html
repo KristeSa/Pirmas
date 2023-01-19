@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../public/css/style.css">
+</head>
+<body>
+    <header>
+        <img id="logo" src="https://blog.hubspot.com/hubfs/image8-2.jpg">
+        <div class="header-container">
+        <h1>Split Bill</h1>
+    </div>
+    </header>
+<main>
+    <h4>Select Your Group</h4>
+    <div id="group-content"></div>
+
+    <div id="add-group">
+        <h5>Add group</h5>
+        <form id="group-id-input-form">
+        <div class="group-id-input">
+        <label for="group-id">Group ID:</label>
+        <input id="group-id" type="number">
+        </div>
+        <button id="group-id-button" type="submit">Add</button>
+    </form>
+    </div>
+</main>
+
+    <script type="module" src="./modules/getGroups.js"></script>
+</body>
+</html>
