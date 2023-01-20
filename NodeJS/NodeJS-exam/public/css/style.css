@@ -100,9 +100,30 @@ a:hover {
     border: 1px solid rgb(233, 229, 229) 
 }
 
-#group-id-input-form, #bill-input-form {
+.group-id-input-form, #bill-input-form {
     border: none;
     width: 40%;
     margin: 0 auto;
+}
+
+#bills-table {
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-size: small;
+}
+
+#bills-table td, #bills-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    
+}
+
+#bills-table tr:nth-child(even){
+    background-color: #ddd;
+}
+
+#bills-table th {
+    text-align: left;
 }
 

@@ -3,25 +3,23 @@ import { getBills } from "./getBills.js";
 const bills = await getBills();
 
 const renderBills = async () => {
-  const billsContent = document.getElementById("bills-content");
-  billsContent.replaceChildren();
+  const billsTBody = document.getElementById("bills-table-body");
+  billsTBody.replaceChildren();
 
   bills.forEach((bill) => {
-    const { id, amount, description } = bill;
+    const { id, description, amount } = bill;
 
-    const billsCard = document.createElement("div");
-    const billsId = document.createElement("h3");
-    const billsAmount = document.createElement("p");
-    const billsDescription = document.createElement("p");
+    const billsCard = document.createElement("tr");
+    const billsId = document.createElement("td");
+    const billsDescription = document.createElement("td");
+    const billsAmount = document.createElement("td");
 
     billsId.textContent = id;
-    billsAmount.textContent = amount;
-    billsDescription.textContent = description;
+    billsDescription.textContent = description.toLocaleUpperCase();
+    billsAmount.textContent = `$ ${amount}`;
 
-    billsCard.classList.add("bills-card");
-
-    billsCard.append(billsId, billsAmount, billsDescription);
-    billsContent.append(billsCard);
+    billsCard.append(billsId, billsDescription, billsAmount);
+    billsTBody.append(billsCard);
   });
 };
 

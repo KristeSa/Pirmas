@@ -17,24 +17,23 @@ const renderGroups = async () => {
     groupName.textContent = name;
 
     groupCard.classList.add("group-card");
-    groupId.setAttribute("id", "group-id");
+    groupId.classList.add("group-id");
 
     groupCard.append(groupId, groupName);
     groupContent.append(groupCard);
+  });
 
-    document.getElementById("group-id").addEventListener("click", () => {
-      //const groupIdButton = e.target.textContent;
-      const route = location.pathname;
-      const redirectRoute = route.replace(
-        "groups.html",
-        `bills.html?${groupId.id}`
-      );
-      location.assign(redirectRoute);
-
-      console.log(groupId.id);
-    });
+  document.querySelector(".group-id").addEventListener("click", () => {
+    //const groupIdButton = e.target.textContent;
+    const route = location.pathname;
+    const redirectRoute = route.replace(
+      "groups.html",
+      `bills.html/${groupId.id}`
+    );
+    location.assign(redirectRoute);
   });
 };
+
 await renderGroups();
 
 export { renderGroups };

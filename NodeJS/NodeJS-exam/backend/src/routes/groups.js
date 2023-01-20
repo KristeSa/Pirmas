@@ -5,10 +5,24 @@ import jwt from "jsonwebtoken";
 
 export const groupsRouter = Router();
 
-const TOKEN_START = "Bearer ";
-
 groupsRouter.get("/", async (_, res) => {
   const query = `SELECT * FROM users_groups`;
+
+  try {
+    const con = await mysql.createConnection(MSQL_CONFIG);
+    const [result] = await con.execute(query);
+    await con.end();
+
+    res.send(result).end();
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+groupsRouter.get("/:groups-id", async (req, res) => {
+  const id = +req.params.id;
+
+  const query = `SELECT * FROM users_groups WHERE id = ${id}`;
 
   try {
     const con = await mysql.createConnection(MSQL_CONFIG);

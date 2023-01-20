@@ -1,7 +1,5 @@
 import { renderGroups } from "./renderGroups.js";
 
-renderGroups;
-
 async function getGroups() {
   try {
     const response = await fetch("http://localhost:5100/groups", {
@@ -21,6 +19,8 @@ async function getGroups() {
     console.error(err);
   }
 }
+
+await renderGroups();
 
 await getGroups();
 

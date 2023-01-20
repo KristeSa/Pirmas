@@ -1,20 +1,23 @@
-import { renderBills } from "./renderBills";
+import { renderBills } from "./renderBills.js";
 
 async function getBills() {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const id = urlParams.get("id");
+  const group_id = +urlParams.get("group-id");
+
+  console.log({ group_id, urlParams });
 
   try {
-    const response = await fetch(`http://localhost:5100/bills/${id}`);
+    const response = await fetch(`http://localhost:5100/bills/${group_id}`);
     const bills = await response.json();
 
-    await renderBills();
     return bills;
   } catch (err) {
     console.error(err);
   }
 }
+
+renderBills();
 
 await getBills();
 
