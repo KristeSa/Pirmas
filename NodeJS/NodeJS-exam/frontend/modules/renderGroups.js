@@ -1,13 +1,14 @@
-import { getGroups } from "./getGroups.js";
+import { getAccounts } from "./getAccounts.js";
 
-const groups = await getGroups();
+const accounts = await getAccounts();
 
 const renderGroups = async () => {
   const groupContent = document.getElementById("group-content");
   groupContent.replaceChildren();
 
-  groups.forEach((group) => {
-    const { id, name } = group;
+  accounts.forEach((group) => {
+    const id = +group.group_id;
+    const name = group.name;
 
     const groupCard = document.createElement("div");
     const groupId = document.createElement("h2");
@@ -17,20 +18,19 @@ const renderGroups = async () => {
     groupName.textContent = name;
 
     groupCard.classList.add("group-card");
-    groupId.classList.add("group-id");
+    groupId.classList.add("group_id");
 
     groupCard.append(groupId, groupName);
     groupContent.append(groupCard);
-  });
 
-  document.querySelector(".group-id").addEventListener("click", () => {
-    //const groupIdButton = e.target.textContent;
-    const route = location.pathname;
-    const redirectRoute = route.replace(
-      "groups.html",
-      `bills.html/${groupId.id}`
-    );
-    location.assign(redirectRoute);
+    groupId.addEventListener("click", () => {
+      const route = location.pathname;
+      const redirectRoute = route.replace(
+        "groups.html",
+        `bills.html?group_id=${id}`
+      );
+      location.assign(redirectRoute);
+    });
   });
 };
 

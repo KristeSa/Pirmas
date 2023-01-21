@@ -19,9 +19,9 @@ userRouter.post("/register", async (req, res) => {
 
   try {
     userData = await userSchema.validateAsync(userData);
-  } catch (err) {
-    console.log(err);
-    return res.status(400).send({ err: "Incorrect data sent" }).end();
+  } catch (error) {
+    console.log({ error });
+    return res.status(400).send({ error: "Incorrect data sent" }).end();
   }
 
   try {
@@ -37,11 +37,11 @@ userRouter.post("/register", async (req, res) => {
     await con.end();
 
     return res.send(data).end();
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log({ error });
     return res
       .status(500)
-      .send({ err: "Unexpected error. Please try again" })
+      .send({ error: "Unexpected error. Please try again" })
       .end();
   }
 });
@@ -51,9 +51,9 @@ userRouter.post("/login", async (req, res) => {
 
   try {
     userData = await userSchema.validateAsync(userData);
-  } catch (err) {
-    console.log(err);
-    return res.status(400).send({ err: "Incorrect email or password" }).end();
+  } catch (error) {
+    console.log({ error });
+    return res.status(400).send({ error: "Incorrect email or password" }).end();
   }
 
   try {
@@ -65,7 +65,10 @@ userRouter.post("/login", async (req, res) => {
     await con.end();
 
     if (data.length === 0) {
-      return res.status(400).send({ err: "Incorrect email or password" }).end();
+      return res
+        .status(400)
+        .send({ error: "Incorrect email or password" })
+        .end();
     }
 
     const isAuth = bcrypt.compareSync(userData.password, data[0].password);
@@ -80,11 +83,11 @@ userRouter.post("/login", async (req, res) => {
     }
 
     return res.status(400).send({ err: "Incorrect email or password" }).end();
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log({ error });
     return res
       .status(500)
-      .send({ err: "Unexpected error. Please try again" })
+      .send({ error: "Unexpected error. Please try again" })
       .end();
   }
 });

@@ -14,8 +14,8 @@ document.getElementById("login").addEventListener("submit", (e) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      if (data.err) {
-        return alert("Incorrect details");
+      if (data.error) {
+        return alert("Incorrect login details");
       }
 
       localStorage.setItem("token", data.token);
@@ -23,5 +23,5 @@ document.getElementById("login").addEventListener("submit", (e) => {
       const redirectRoute = route.replace("login.html", "groups.html");
       location.assign(redirectRoute);
     })
-    .catch((err) => console.log(err));
+    .catch((error) => console.log({ error }));
 });

@@ -20,6 +20,11 @@ document.getElementById("register").addEventListener("submit", (e) => {
     }),
   })
     .then((res) => res.json())
-    .then((data) => console.log(data))
-    .catch((err) => console.log(err));
+    .then((data) => {
+      alert("Registration is successfull. Please Login");
+      const route = location.pathname;
+      const redirectRoute = route.replace("register.html", "login.html");
+      location.assign(redirectRoute);
+    })
+    .catch((error) => console.log({ error }));
 });

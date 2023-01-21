@@ -14,12 +14,12 @@ const getMemberships = async () => {
 };
 getMemberships();
 
-  memberships.forEach((membership) => {
-    const newMembership = document.createElement("option");
-    newMembership.innerHTML = membership.name;
-    selectMembership.appendChild(newMembership);
-  });
-};
+memberships.forEach((membership) => {
+  const newMembership = document.createElement("option");
+  newMembership.innerHTML = membership.name;
+  selectMembership.appendChild(newMembership);
+});
+
 populateMemberships(memberships);
 
 const addUser = document.querySelector("form");
