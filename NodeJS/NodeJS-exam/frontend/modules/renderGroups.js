@@ -1,12 +1,12 @@
 import { getAccounts } from "./getAccounts.js";
 
-const accounts = await getAccounts();
+const groups = await getAccounts();
 
 const renderGroups = async () => {
   const groupContent = document.getElementById("group-content");
   groupContent.replaceChildren();
 
-  accounts.forEach((group) => {
+  groups.forEach((group) => {
     const id = +group.group_id;
     const name = group.name;
 

@@ -32,6 +32,7 @@ addBillForm.addEventListener("submit", async (event) => {
 
     if (response.ok) {
       alert("Bill successfully added");
+      addBillForm.reset();
     }
 
     if (!response.ok || response.status >= 400) {
