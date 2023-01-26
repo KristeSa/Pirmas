@@ -1,0 +1,15 @@
+.blue {
+    background-color: rgb(10, 124, 166);
+    margin: 20px;
+    padding: 30px;
+}
+
+h1, h2 {
+    color: white;
+}
+
+h2 {
+    margin-top: -20px;
+    font-weight: 300;
+
+}

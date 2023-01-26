@@ -1,0 +1,56 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-image: url("https://www.biztrip.co.uk/wp-content/uploads/2017/05/Business-Travel-Header-Image.jpg");
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.header-img {
+  width: 100%;
+}
+
+button {
+  color: white;
+  background-color: rgb(101, 143, 143);
+  padding: 10px 20px;
+  border: 1px solid rgb(101, 143, 143);
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.inner-text {
+  width: 60%;
+  text-align: justify;
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+
+.porfolio-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:space-evenly;
+  align-items: center;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.porfolio-img {
+  width: 100%;
+}
+
+.porftolio {
+  width: 200px;
+  padding: 10px;
+}
+
+p {
+  font-size: small;
+}
