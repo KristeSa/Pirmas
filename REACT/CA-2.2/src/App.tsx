@@ -25,12 +25,7 @@ function App() {
           </p>
         </section>
         <section className="porfolio-container">
-          <Portfolio text="Lorem ipsum" />
-          <Portfolio text="Lorem ipsum" />
-          <Portfolio text="Lorem ipsum" />
-          <Portfolio text="Lorem ipsum" />
-          <Portfolio text="Lorem ipsum" />
-          <Portfolio text="Lorem ipsum" />
+          <Portfolio />
         </section>
       </main>
     </div>
