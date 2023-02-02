@@ -58,7 +58,7 @@ p{
   justify-content: space-between;
  }
 
-.span {
+span {
   display: inline-flex;
   margin-right: 10px;
 }

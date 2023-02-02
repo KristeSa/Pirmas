@@ -18,7 +18,8 @@
   "homepage": "https://github.com/KristeSa/Pirmas#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "react-router-dom": "^6.8.0"
   },
   "devDependencies": {
     "eslint": "^8.27.0",

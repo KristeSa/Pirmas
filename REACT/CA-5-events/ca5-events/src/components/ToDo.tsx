@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmarkCircle } from "@fortawesome/free-regular-svg-icons";
@@ -14,12 +15,17 @@ export const ToDoForm = () => {
   //   setToDo(event.currentTarget);
   // };
 
-  const deleteToDo = setToDo.filter((toDo: any) => toDo.id !== id);
+  // const deleteToDo = setToDo.filter((toDo: any) => toDo.id !== id);
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
 
     setSavedToDos((prevSavedToDos) => [...prevSavedToDos, toDo]);
+    console.log(savedToDos);
+
+    // const deleteToDo = (event) => {
+    //   savedToDos.filter((toDo) => toDo !== event.target.value);
+    // };
 
     setToDo("");
   };
@@ -33,16 +39,16 @@ export const ToDoForm = () => {
           <p className="toDo" key={i}>
             {curToDo}
             <span>
-              {" "}
+              {/* {" "}
               <button
                 className="icon"
                 id="toDo"
                 onClick={() => {
                   deleteToDo;
-                }}
-              >
-                <FontAwesomeIcon icon={faXmarkCircle} />
-              </button>
+                }} */}
+              {/* > */}
+              <FontAwesomeIcon icon={faXmarkCircle} />
+              {/* </button> */}
             </span>
           </p>
         );
