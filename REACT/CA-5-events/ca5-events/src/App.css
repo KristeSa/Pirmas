@@ -1,0 +1,64 @@
+.App {
+  border: 1px solid grey;
+  width: 410px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: medium;
+  text-align: center;
+  width: 410px; 
+}
+
+form {
+  background-color: white;
+  height: auto;
+  width: 400px;
+  display: flex;
+  align-content: center;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+.toDo {
+  background-color: white;
+  padding-top: 15px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  color: black;
+  border-top: 1px solid grey;
+  width: 400px;
+  margin: 0 auto;
+  align-content: center;
+  color: rgb(82, 78, 78);
+}
+
+input {
+ width: 290px;
+ height: 30px;
+ margin-bottom: 20px;
+ margin-left: 10px;
+ border: 1px solid grey;
+ border-radius: 2px;
+}
+
+button {
+  align-content: center;
+  margin-left: 10px;
+margin-bottom: 20px;
+padding-left: 15px;
+padding-right: 15px;
+background-color: white;
+border: 1px solid grey;
+border-radius: 2px;
+}
+
+p{
+  display: flex;
+  justify-content: space-between;
+ }
+
+.span {
+  display: inline-flex;
+  margin-right: 10px;
+}
