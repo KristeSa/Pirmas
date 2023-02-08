@@ -1,62 +1,75 @@
 import axios from "axios";
 import { useState } from "react";
+import { Button } from "./Button";
 
 export const AddOrder = ({ fetchOrders }: any) => {
-  const [newOrder, setNewOrder] = useState({
-    id: null,
-    people: null,
-    price: null,
-  });
+  const [price, setPrice] = useState<number | null>(null);
+  const [people, setPeople] = useState<number | null>(null);
 
-  const handleInputChange = (
-    event: React.ChangeEvent<HTMLInputElement>,
-    prop: string
-  ) => {
-    setNewOrder({
-      ...newOrder,
-      [prop]: event.target.value,
-    });
+  // const handleInputChange = (
+  //   event: React.ChangeEvent<HTMLInputElement>,
+  //   prop: string
+  // ) => {
+  //   setNewOrder({
+  //     ...newOrder,
+  //     [prop]: event.target.value,
+  //   });
+  // };
+
+  const resetForm = () => {
+    setPrice(null);
+    setPeople(null);
   };
-
-  const handleProductSubmit: React.FormEventHandler<HTMLFormElement> = (
-    event
-  ) => {
-    event.preventDefault();
-
+  const addRow = () => {
     axios
       .post("https://believed-shore-vanadium.glitch.me", {
-        title: newOrder.id,
-        image: newOrder.people,
-        price: newOrder.price,
+        price,
+        people,
       })
-      .then(() => fetchOrders())
+      .then(() => resetForm())
       .catch((error) => console.error(error));
   };
 
   return (
-    <form onSubmit={handleProductSubmit}>
-      <div className="card">
-        <input
-          value={newOrder.id ?? ""}
-          onChange={(event) => handleInputChange(event, "id")}
-          placeholder="Order Id"
-        />
+    <form
+      onSubmit={(event) => {
+        event.preventDefault();
+        addRow();
+      }}
+    >
+      <input
+        placeholder="People"
+        type="number"
+        value={people ?? ""}
+        onChange={(event) => {
+          let newPeople: string | null | number = event.target.value;
 
-        <input
-          value={newOrder.people ?? ""}
-          onChange={(event) => handleInputChange(event, "people")}
-          placeholder="People"
-        />
+          if (newPeople === "") {
+            newPeople = null;
+          } else {
+            newPeople = +newPeople;
+          }
+          setPeople(newPeople);
+        }}
+      />
 
-        <input
-          value={newOrder.price ?? ""}
-          onChange={(event) => handleInputChange(event, "price")}
-          placeholder="Price"
-          type="number"
-        />
+      <input
+        placeholder="Price"
+        type="number"
+        value={price ?? ""}
+        onChange={(event) => {
+          let newPrice: string | null | number = event.target.value;
 
-        <button>Add order</button>
-      </div>
+          if (newPrice === "") {
+            newPrice = null;
+          } else {
+            newPrice = +newPrice;
+          }
+          setPrice(newPrice);
+        }}
+      />
+
+      <Button />
     </form>
   );
 };
