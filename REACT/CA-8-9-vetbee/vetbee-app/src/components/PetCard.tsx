@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { NewPet } from "./NewPet";
-import { PetLog } from "./PetLog";
+import { useNavigate } from "react-router-dom";
 
 export const PetCard = () => {
   const [pets, setPets] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
   const fetchPets = () => {
     axios
@@ -19,6 +19,10 @@ export const PetCard = () => {
       });
   };
 
+  useEffect(() => {
+    fetchPets();
+  }, []);
+
   const deletePet = (id: any) => {
     const shouldDeletePet = window.confirm("Delete this pet?");
 
@@ -31,13 +35,21 @@ export const PetCard = () => {
       .catch((error) => console.error(error));
   };
 
-  useEffect(() => {
-    fetchPets();
-  }, []);
+  const handleViewLog = (id: number) => {
+    navigate(`/logs/${id}`);
+  };
 
   return (
     <>
-      <h1>Pet List</h1>
+      <div className="top-menu">
+        <h1>Pet List</h1>
+        <button
+          className="top-orange-button"
+          onClick={(event) => (window.location.href = "/add-pet")}
+        >
+          ADD PET
+        </button>
+      </div>
       {isLoading ? (
         <p>Loading pets</p>
       ) : (
@@ -47,8 +59,11 @@ export const PetCard = () => {
               <h3>{pet.name}</h3>
               <p>{pet.dob}</p>
               <p>{pet.client_email}</p>
-              <button className="orange-button" onClick={() => <PetLog />}>
-                View pet
+              <button
+                className="orange-button"
+                onClick={() => handleViewLog(pet.id)}
+              >
+                VIEW PET
               </button>
               <button
                 className="white-button"
@@ -57,15 +72,12 @@ export const PetCard = () => {
                 }}
                 key={pet.id}
               >
-                Delete
+                DELETE
               </button>
             </div>
           ))}
         </div>
       )}
-      <div className="add-new">
-        <NewPet />
-      </div>
     </>
   );
 };

@@ -1,23 +1,43 @@
+import logo from "../logo.svg";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import { Medications } from "../Medications";
 import { Pets } from "../Pets";
+import { Footer } from "./Footer";
+import { NewMedication } from "./NewMedication";
+import { NewPet } from "./NewPet";
+import { PetLog } from "./PetLog";
+import { AddLog } from "./AddLog";
+import { AddPrescription } from "./AddPrescription";
 
 export const Navigation = () => {
   return (
-    <BrowserRouter>
-      <header className="App-header">
-        <Link className="link" to={"/pets"}>
-          Pets
-        </Link>
-        <Link className="link" to={"/meds"}>
-          Meds
-        </Link>
-      </header>
-      <Routes>
-        <Route path="/pets" element={<Pets />} />
-        <Route path="/meds" element={<Medications />} />
-        <Route path="*" element={<p>Puslapis nerastas!</p>} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <div className="header-links">
+            <Link className="link" to={"/pets"}>
+              Pets
+            </Link>
+            <Link className="link" to={"/meds"}>
+              Medications
+            </Link>
+          </div>
+        </header>
+        <Routes>
+          <Route path="/pets" element={<Pets />} />
+          <Route path="/add-pet" element={<NewPet />} />
+          <Route path="/meds" element={<Medications />} />
+          <Route path="/add-med" element={<NewMedication />} />
+          <Route path="/logs/:id" element={<PetLog />} />
+          <Route path="/add-log" element={<AddLog />} />
+          <Route path="/add-prescription" element={<AddPrescription />} />
+          <Route path="*" element={<p>Puslapis nerastas!</p>} />
+        </Routes>
+      </BrowserRouter>
+      <footer className="footer">
+        <Footer />
+      </footer>
+    </>
   );
 };

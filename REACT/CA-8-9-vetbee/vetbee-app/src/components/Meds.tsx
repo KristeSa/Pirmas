@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { NewMedication } from "./NewMedication";
 
 export const Meds = () => {
   const [meds, setMeds] = useState<any[]>([]);
@@ -25,6 +24,12 @@ export const Meds = () => {
   return (
     <>
       <h1>Medications</h1>
+      <button
+        className="orange-button"
+        onClick={(event) => (window.location.href = "/add-med")}
+      >
+        Add Medication
+      </button>
       {isLoading ? (
         <p>Loading meds</p>
       ) : (
@@ -37,9 +42,6 @@ export const Meds = () => {
           ))}
         </div>
       )}
-      <div className="add-new">
-        <NewMedication />
-      </div>
     </>
   );
 };

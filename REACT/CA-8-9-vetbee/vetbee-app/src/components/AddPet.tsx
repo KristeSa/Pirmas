@@ -53,7 +53,7 @@ export const AddPet = ({ fetchPets }: any) => {
           type="email"
         />
 
-        <button>Add pet</button>
+        <button className="orange-button">Add pet</button>
       </div>
     </form>
   );

@@ -25,7 +25,7 @@ export const AddMed = ({ fetchMeds }: any) => {
         name: newMed.name,
         description: newMed.description,
       })
-      .then(() => fetchMeds())
+      .then((response) => response.data)
       .catch((error) => console.error(error));
   };
 
@@ -44,7 +44,7 @@ export const AddMed = ({ fetchMeds }: any) => {
           placeholder="Description"
         />
 
-        <button>Add medication</button>
+        <button className="orange-button">Add medication</button>
       </div>
     </form>
   );
