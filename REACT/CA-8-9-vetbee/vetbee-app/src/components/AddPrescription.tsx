@@ -35,7 +35,7 @@ export const AddPrescription = () => {
 
   return (
     <form onSubmit={handlePrescriptionSubmit}>
-      <div className="card">
+      <div className="form-card">
         <input
           value={newPrescription.medication_id ?? ""}
           onChange={(event) => handleInputChange(event, "medication_id")}

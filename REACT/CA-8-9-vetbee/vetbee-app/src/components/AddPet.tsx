@@ -33,7 +33,7 @@ export const AddPet = ({ fetchPets }: any) => {
 
   return (
     <form onSubmit={handlePetSubmit}>
-      <div className="card">
+      <div className="form-card">
         <input
           value={newPet.name ?? ""}
           onChange={(event) => handleInputChange(event, "name")}

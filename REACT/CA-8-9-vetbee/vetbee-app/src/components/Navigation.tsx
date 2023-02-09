@@ -1,13 +1,13 @@
 import logo from "../logo.svg";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import { Medications } from "../Medications";
-import { Pets } from "../Pets";
+import { Pets } from "./Pets";
 import { Footer } from "./Footer";
 import { NewMedication } from "./NewMedication";
 import { NewPet } from "./NewPet";
 import { PetLog } from "./PetLog";
 import { AddLog } from "./AddLog";
 import { AddPrescription } from "./AddPrescription";
+import { Meds } from "./Meds";
 
 export const Navigation = () => {
   return (
@@ -27,7 +27,7 @@ export const Navigation = () => {
         <Routes>
           <Route path="/pets" element={<Pets />} />
           <Route path="/add-pet" element={<NewPet />} />
-          <Route path="/meds" element={<Medications />} />
+          <Route path="/meds" element={<Meds />} />
           <Route path="/add-med" element={<NewMedication />} />
           <Route path="/logs/:id" element={<PetLog />} />
           <Route path="/add-log" element={<AddLog />} />

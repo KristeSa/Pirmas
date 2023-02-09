@@ -30,7 +30,7 @@ export const Prescriptions = () => {
       <h1>Prescriptions</h1>
       <button
         className="top-orange-button"
-        onClick={(event) => (window.location.href = "/add-prescription")}
+        onClick={() => (window.location.href = "/add-prescription")}
       >
         ADD PRESCRIPTION
       </button>

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 
-export const AddMed = ({ fetchMeds }: any) => {
+export const AddMed = () => {
   const [newMed, setNewMed] = useState({
     name: null,
     description: null,
@@ -31,7 +31,7 @@ export const AddMed = ({ fetchMeds }: any) => {
 
   return (
     <form onSubmit={handleMedSubmit}>
-      <div className="card">
+      <div className="form-card">
         <input
           value={newMed.name ?? ""}
           onChange={(event) => handleInputChange(event, "name")}
@@ -44,7 +44,7 @@ export const AddMed = ({ fetchMeds }: any) => {
           placeholder="Description"
         />
 
-        <button className="orange-button">Add medication</button>
+        <button className="orange-button">ADD MEDICATION</button>
       </div>
     </form>
   );

@@ -24,18 +24,20 @@ export const Meds = () => {
   return (
     <>
       <h1>Medications</h1>
-      <button
-        className="orange-button"
-        onClick={(event) => (window.location.href = "/add-med")}
-      >
-        Add Medication
-      </button>
+      <div className="top-button-container">
+        <button
+          className="orange-button"
+          onClick={() => (window.location.href = "/add-med")}
+        >
+          Add Medication
+        </button>
+      </div>
       {isLoading ? (
         <p>Loading meds</p>
       ) : (
         <div className="container">
           {meds.map((med: any) => (
-            <div className="med-card" key={med.id}>
+            <div className="card" key={med.id}>
               <h3>{med.name}</h3>
               <p>Description: {med.description}</p>
             </div>

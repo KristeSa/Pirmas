@@ -33,7 +33,7 @@ export const AddLog = () => {
 
   return (
     <form onSubmit={handleLogSubmit}>
-      <div className="card">
+      <div className="form-card">
         <input
           value={newLog.pet_id ?? ""}
           onChange={(event) => handleInputChange(event, "pet_id")}

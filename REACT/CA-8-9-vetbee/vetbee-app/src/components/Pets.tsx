@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export const PetCard = () => {
+export const Pets = () => {
   const [pets, setPets] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
@@ -55,25 +55,27 @@ export const PetCard = () => {
       ) : (
         <div className="container">
           {pets.map((pet: any) => (
-            <div className="pet-card" key={pet.id}>
+            <div className="card" key={pet.id}>
               <h3>{pet.name}</h3>
               <p>{pet.dob}</p>
               <p>{pet.client_email}</p>
-              <button
-                className="orange-button"
-                onClick={() => handleViewLog(pet.id)}
-              >
-                VIEW PET
-              </button>
-              <button
-                className="white-button"
-                onClick={() => {
-                  deletePet(pet.id);
-                }}
-                key={pet.id}
-              >
-                DELETE
-              </button>
+              <div className="card-button-container">
+                <button
+                  className="orange-button"
+                  onClick={() => handleViewLog(pet.id)}
+                >
+                  VIEW PET
+                </button>
+                <button
+                  className="white-button"
+                  onClick={() => {
+                    deletePet(pet.id);
+                  }}
+                  key={pet.id}
+                >
+                  DELETE
+                </button>
+              </div>
             </div>
           ))}
         </div>
