@@ -25,10 +25,10 @@ export const Meds = () => {
 
   return (
     <>
-      <h1>Medications</h1>
-      <div className="top-button-container">
+      <div className="top-menu">
+        <h1>Medications</h1>
         <button
-          className="orange-button"
+          className="top-orange-button"
           onClick={() => (window.location.href = "/add-med")}
         >
           Add Medication

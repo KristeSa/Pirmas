@@ -56,7 +56,12 @@ export const AddPet = () => {
           type="email"
         />
 
-        <button className="orange-button">Add pet</button>
+        <button
+          className="orange-button"
+          onClick={() => window.location.replace("/pets")}
+        >
+          Add pet
+        </button>
       </div>
     </form>
   );
