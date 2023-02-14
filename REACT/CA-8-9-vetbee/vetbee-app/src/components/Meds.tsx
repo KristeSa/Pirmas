@@ -8,7 +8,9 @@ export const Meds = () => {
   const fetchMeds = () => {
     axios
       .get("https://glittery-dull-snickerdoodle.glitch.me/v1/meds")
-      .then((response) => setMeds(response.data))
+      .then((response) =>
+        setMeds(response.data.filter((med: any) => med.name && med.description))
+      )
       .catch((error) => console.error(error))
       .finally(() => {
         setTimeout(() => {

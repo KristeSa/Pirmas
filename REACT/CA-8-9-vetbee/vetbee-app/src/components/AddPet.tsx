@@ -1,12 +1,14 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-export const AddPet = ({ fetchPets }: any) => {
+export const AddPet = () => {
   const [newPet, setNewPet] = useState({
     name: null,
     dob: null,
     client_email: null,
   });
+  const navigate = useNavigate();
 
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -20,6 +22,7 @@ export const AddPet = ({ fetchPets }: any) => {
 
   const handlePetSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
+    navigate(`/pets`);
 
     axios
       .post("https://glittery-dull-snickerdoodle.glitch.me/v1/pets/", {
@@ -27,7 +30,7 @@ export const AddPet = ({ fetchPets }: any) => {
         dob: newPet.dob,
         client_email: newPet.client_email,
       })
-      .then(() => fetchPets())
+      .then((response) => response.data)
       .catch((error) => console.error(error));
   };
 

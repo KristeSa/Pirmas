@@ -4,18 +4,18 @@
 }
 
 .App-header {
-  background-color: orange;
+  background-color: white;
   display: flex;
   justify-content: space-between;
   font-size: medium;
-  color: white;
+  color: orange;
   padding: 15px;
   margin-bottom: 20px;
 }
 
 .link {
   margin-right: 20px;
-  color: white;
+  color: orange;
   text-decoration: none;
   font-weight: 600;
 }
@@ -23,6 +23,7 @@
 .App-logo {
   align-self: flex-start;
   margin-left: 20px;
+  width: 150px;
 }
 
 .top-menu {

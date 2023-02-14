@@ -1,11 +1,14 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const AddMed = () => {
   const [newMed, setNewMed] = useState({
     name: null,
     description: null,
   });
+
+  const navigate = useNavigate();
 
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -19,6 +22,7 @@ export const AddMed = () => {
 
   const handleMedSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
+    navigate(`/meds`);
 
     axios
       .post("https://glittery-dull-snickerdoodle.glitch.me/v1/meds/", {

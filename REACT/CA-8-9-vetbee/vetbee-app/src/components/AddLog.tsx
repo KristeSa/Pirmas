@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const AddLog = () => {
   const [newLog, setNewLog] = useState({
@@ -7,6 +8,8 @@ export const AddLog = () => {
     description: null,
     status: null,
   });
+
+  const navigate = useNavigate();
 
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -20,6 +23,7 @@ export const AddLog = () => {
 
   const handleLogSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
+    navigate(`/pets`);
 
     axios
       .post("https://glittery-dull-snickerdoodle.glitch.me/v1/logs/", {
