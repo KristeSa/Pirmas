@@ -49,7 +49,7 @@ export const PetLog = () => {
           ADD LOG
         </button>
       </div>
-      <div>
+      <div className="log-top-menu">
         <h1>{logs[0]?.name} Health records</h1>
         <div className="top-button-container">
           <p>Display:</p>

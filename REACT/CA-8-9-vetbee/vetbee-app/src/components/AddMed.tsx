@@ -44,7 +44,12 @@ export const AddMed = () => {
           placeholder="Description"
         />
 
-        <button className="orange-button">ADD MEDICATION</button>
+        <button
+          className="orange-button"
+          onClick={() => window.location.replace("/meds")}
+        >
+          ADD MEDICATION
+        </button>
       </div>
     </form>
   );

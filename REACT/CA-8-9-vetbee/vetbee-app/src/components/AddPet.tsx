@@ -27,7 +27,7 @@ export const AddPet = ({ fetchPets }: any) => {
         dob: newPet.dob,
         client_email: newPet.client_email,
       })
-      .then(() => fetchPets())
+      .then((response) => response.data)
       .catch((error) => console.error(error));
   };
 
@@ -53,7 +53,12 @@ export const AddPet = ({ fetchPets }: any) => {
           type="email"
         />
 
-        <button className="orange-button">Add pet</button>
+        <button
+          className="orange-button"
+          onClick={() => window.location.replace("/pets")}
+        >
+          Add pet
+        </button>
       </div>
     </form>
   );

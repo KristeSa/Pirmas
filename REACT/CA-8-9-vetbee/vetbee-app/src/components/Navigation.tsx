@@ -1,5 +1,5 @@
-import logo from "../logo.svg";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import logo from "../logo.png";
+import { BrowserRouter, Link, Navigate, Route, Routes } from "react-router-dom";
 import { Pets } from "./Pets";
 import { Footer } from "./Footer";
 import { NewMedication } from "./NewMedication";
@@ -26,6 +26,7 @@ export const Navigation = () => {
         </header>
         <Routes>
           <Route path="/pets" element={<Pets />} />
+          <Route path="/" element={<Navigate to="/pets" />} />
           <Route path="/add-pet" element={<NewPet />} />
           <Route path="/meds" element={<Meds />} />
           <Route path="/add-med" element={<NewMedication />} />
