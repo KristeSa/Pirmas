@@ -1,0 +1,56 @@
+.toggleButtonContainer { 
+    position: absolute;
+    bottom: 10px; 
+    right: 20px;
+    color: #EEE;
+    display: flex; 
+    align-items: center; 
+    column-gap: 20px ;
+  
+    .slideToggle {
+      width: 8.6rem;
+      height: 3.5rem;
+      border-radius: 10rem;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      position: relative;
+      color: #111;
+      background-color: #AAA;
+      transition: background-color 0.25s ease-out;
+    
+      > .positiveText,
+      > .negativeText {
+        font-weight: 600;
+        position: absolute;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        top: 0.8rem;
+      }
+    
+      > .positiveText {
+        left: 1.6rem;
+      }
+    
+      > .negativeText {
+        right: 1.4rem;
+      }
+    
+      > .slideToggleButton {
+        display: block;
+        top: 0.2rem;
+        right: 0.2rem;
+        width: 3.1rem;
+        height: 3.1rem;
+        background: #EEE;
+        border-radius: 100%;
+        position: absolute;
+        left: 0.2rem;
+        transition: left 0.25s ease-out;
+    
+        &.active {
+          left: 5.2rem;
+        }
+      }
+    }
+  }  
