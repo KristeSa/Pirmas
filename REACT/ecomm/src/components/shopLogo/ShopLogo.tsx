@@ -1,3 +1,5 @@
+import { FC, useContext } from "react";
+import { ShoppingContext } from "../ProductContext/ProductContext";
 import "./ShopLogo.css";
 
 export const ShopLogo = () => {
