@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import { MainRouter } from "./components/MainRouter";
-import { ProductContext } from "./components/productContext";
+import { ProductContext } from "./components/ProductContext";
 import { INITIAL_PRODUCTS } from "./utils/initialProducts";
 
 function App() {
