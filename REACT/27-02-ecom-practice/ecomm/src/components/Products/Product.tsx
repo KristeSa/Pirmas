@@ -18,6 +18,17 @@ export const Product: FC<TProductProps> = ({ product }) => {
       >
         Add to Cart
       </button>
+
+      <button
+        onClick={() =>
+          dispatch({
+            type: "removeProduct",
+            payload: { productId: product.id },
+          })
+        }
+      >
+        Remove from Cart
+      </button>
     </div>
   );
 };
