@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Cart } from "./Cart/Cart";
-import { Footer } from "./Footer/Footer";
-import { Header } from "./Header/Header";
-import { Products } from "./products/Products";
+import { Cart } from "./cart/Cart";
+import { Products } from "./cart/Products";
+import { Footer } from "./footer/Footer";
+import { Header } from "./header/Header";
 
 export const MainRouter = () => {
   return (

@@ -1,1 +1,0 @@
-export type TproductsActionType = "add-to-cart" | "remove-from-cart" | "set-products";
