@@ -1,34 +1,52 @@
 import { type FC, useContext } from "react";
 import { ProductContext } from "../ProductContext";
 import type { TProductProps } from "./types";
+import { Box, ImageListItem, ImageListItemBar } from "@mui/material";
+import { ProductActionButton } from "./ProductActionButton";
 
 export const Product: FC<TProductProps> = ({ product }) => {
-  const { dispatch } = useContext(ProductContext);
+  const { cartProducts } = useContext(ProductContext);
+
+  //toDo: naudoti objekta:
+  const isProductinCart = cartProducts.some(
+    (cartProducts) => cartProducts.id === product.id
+  );
 
   return (
-    <div>
-      <p>{product.title}</p>
-      <p>{product.description}</p>
-      <p>{product.price}</p>
+    <ImageListItem>
+      <img
+        src={`${product.image}?w=248&fit=crop&auto=format`}
+        srcSet={`${product.image}?w=248&h&fit=crop&auto=format&dpr=2 2x`}
+        loading="lazy"
+      />
 
-      <button
-        onClick={() =>
-          dispatch({ type: "addProduct", payload: { productId: product.id } })
-        }
-      >
-        Add to Cart
-      </button>
+      <ImageListItemBar
+        title={product.title}
+        subtitle={<span>PRICE: {product.price}</span>}
+        position="below"
+      />
 
-      <button
-        onClick={() =>
-          dispatch({
-            type: "removeProduct",
-            payload: { productId: product.id },
-          })
-        }
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        gap="30px"
+        sx={{ "& button": { width: "50px" } }}
       >
-        Remove from Cart
-      </button>
-    </div>
+        <ProductActionButton
+          title="+"
+          type="addProduct"
+          productId={product.id}
+        />
+
+        {isProductinCart ? (
+          <ProductActionButton
+            title="-"
+            type="removeProduct"
+            productId={product.id}
+          />
+        ) : null}
+      </Box>
+    </ImageListItem>
   );
 };

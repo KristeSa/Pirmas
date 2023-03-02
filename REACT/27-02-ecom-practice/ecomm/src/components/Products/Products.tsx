@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { ProductContext } from "../ProductContext";
 import axios from "axios";
 import { Product } from "./Product";
+import { ImageList } from "@mui/material";
 
 export const Products = () => {
   const { dispatch, fetchedProducts } = useContext(ProductContext);
@@ -26,12 +27,19 @@ export const Products = () => {
       {isLoading ? (
         <p>Loading products...</p>
       ) : (
-        <div>
-          <h1>Products</h1>
+        <ImageList
+          cols={3}
+          gap={30}
+          sx={{
+            height: "100%",
+            width: 600,
+            margin: "auto",
+          }}
+        >
           {fetchedProducts.map((product) => (
             <Product key={product.id} product={product} />
           ))}
-        </div>
+        </ImageList>
       )}
     </>
   );

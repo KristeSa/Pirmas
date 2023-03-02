@@ -1,11 +1,11 @@
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import { Cart, NoPageFound, Products } from "..";
+import { Header } from "../Header/Header";
 
 export const MainRouter = () => {
   return (
     <BrowserRouter>
-      <Link to="/cart">Cart</Link>
-      <Link to="/">Home</Link>
+      <Header />
 
       <Routes>
         <Route path="/" element={<Products />} />
