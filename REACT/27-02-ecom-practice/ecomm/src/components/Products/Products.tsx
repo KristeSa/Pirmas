@@ -2,7 +2,11 @@ import { useContext, useEffect, useState } from "react";
 import { ProductContext } from "../ProductContext";
 import axios from "axios";
 import { Product } from "./Product";
-import { ImageList } from "@mui/material";
+import { Container, ImageList } from "@mui/material";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
+import Typography from "@mui/material/Typography";
 
 export const Products = () => {
   const { dispatch, fetchedProducts } = useContext(ProductContext);
@@ -27,19 +31,15 @@ export const Products = () => {
       {isLoading ? (
         <p>Loading products...</p>
       ) : (
-        <ImageList
-          cols={3}
-          gap={30}
-          sx={{
-            height: "100%",
-            width: 600,
-            margin: "auto",
-          }}
-        >
-          {fetchedProducts.map((product) => (
-            <Product key={product.id} product={product} />
-          ))}
-        </ImageList>
+        <Box py={2}>
+          <Grid sx={{ justifyContent: "center" }}>
+            <Grid item xs={12}>
+              {fetchedProducts.map((product) => (
+                <Product key={product.id} product={product} />
+              ))}
+            </Grid>
+          </Grid>
+        </Box>
       )}
     </>
   );
