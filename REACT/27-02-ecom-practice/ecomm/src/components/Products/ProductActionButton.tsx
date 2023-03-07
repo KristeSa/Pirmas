@@ -7,13 +7,15 @@ export const ProductActionButton: FC<TProductActionButtonProps> = ({
   title,
   type,
   productId,
+  color,
 }) => {
   const { dispatch } = useContext(ProductContext);
 
   return (
     <Button
       variant="outlined"
-      sx={{ width: "30px" }}
+      color={color}
+      sx={{ width: "30px", height: "30px" }}
       onClick={() => dispatch({ type, payload: { productId } })}
     >
       {title}

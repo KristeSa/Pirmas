@@ -1,59 +1,57 @@
-import { type FC, useContext } from "react";
+import { Box, Grid, ImageListItem, ImageListItemBar } from "@mui/material";
+import { FC, useContext } from "react";
 import { ProductContext } from "../ProductContext";
-import type { TProductProps } from "./types";
-import {
-  Box,
-  Card,
-  CardMedia,
-  Grid,
-  ImageListItem,
-  ImageListItemBar,
-  Typography,
-} from "@mui/material";
 import { ProductActionButton } from "./ProductActionButton";
-import { Container } from "@mui/system";
-import ImageList from "@mui/material/ImageList";
+import { TProductProps } from "./types";
 
 export const Product: FC<TProductProps> = ({ product }) => {
   const { cartProducts } = useContext(ProductContext);
 
-  //toDo: naudoti objekta:
   const isProductinCart = cartProducts.some(
     (cartProducts) => cartProducts.id === product.id
   );
 
   return (
-    <Card>
-      <img src={product.image} />
-
-      <CardMedia component="img" src={product.image} />
-
-      <Box py={1} px={2}>
-        <Grid container alignItems="center">
-          <Grid item xs={9}>
-            <Typography
-              gutterBottom
-              variant="body1"
-              component="h2"
-              style={{ textTransform: "capitalize" }}
-            >
-              {product.title}
-            </Typography>
-            <Typography variant="body2" component="span">
-              ${product.price}
-            </Typography>
-          </Grid>
-        </Grid>
+    <>
+      <Box sx={{ display: "flex" }}>
+        <img
+          width={"250px"}
+          src={product.image}
+          // src={`${product.image}?w=248&fit=crop&auto=format`}
+          // srcSet={`${product.image}?w=248&h&fit=crop&auto=format&dpr=2 2x`}
+          // loading="lazy"
+        />
       </Box>
-      <ProductActionButton title="+" type="addProduct" productId={product.id} />
+      <ImageListItemBar>
+        title={product.title}
+        subtitle={<span>PRICE: {product.price}</span>}
+        position="top"
+      </ImageListItemBar>
 
-      {isProductinCart ? (
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        gap="30px"
+        height="60px"
+        // sx={{ "& button": { width: "40px" } }}
+      >
         <ProductActionButton
-          title="-"
-          type="removeProduct"
+          color="success"
+          title="+"
+          type="addProduct"
           productId={product.id}
         />
-      ) : null}
-    </Card>
+
+        {isProductinCart ? (
+          <ProductActionButton
+            color="error"
+            title="-"
+            type="removeProduct"
+            productId={product.id}
+          />
+        ) : null}
+      </Box>
+    </>
   );
 };

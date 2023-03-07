@@ -17,6 +17,7 @@ export type TCartProduct = TProduct & {
 amount: number;
 }
 
+
 export type TProductContext = {
     fetchedProducts: Readonly<TProduct[]>;
     cartProducts: Readonly<TCartProduct[]>;
@@ -35,3 +36,4 @@ export type TProductsState = {
   fetchedProducts: Readonly<TProduct[]>,
   cartProducts: Readonly<TCartProduct[]>,
 }
+
