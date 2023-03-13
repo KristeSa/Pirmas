@@ -1,15 +1,27 @@
 import { Box, Grid, Typography } from "@mui/material";
-import type { FC } from "react";
-import { Link } from "react-router-dom";
+import { FC, useContext } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { ProductContext } from "../ProductContext";
 
 export const Header: FC = () => {
+  const { cartProducts } = useContext(ProductContext);
+  const { pathname } = useLocation();
+  const isOnCartLink = pathname.includes("/cart");
+
+  let cartAmount = 0;
+
+  cartProducts.forEach((product) => {
+    cartAmount += product.amount;
+  });
+
   return (
     <Box component="header" textAlign="center" margin="0 auto" width="600px">
       <Typography variant="h3" padding={2} fontWeight="600px">
-        Products
+        {isOnCartLink ? "CART" : "PRODUCTS"}
       </Typography>
 
       <Grid
+        role="navigation"
         container
         textAlign="center"
         mb={2}
@@ -24,13 +36,13 @@ export const Header: FC = () => {
       >
         <Grid item xs={12} sm={6}>
           <Link to="/">
-            <Typography>Home</Typography>
+            <Typography aria-label="home link">Home</Typography>
           </Link>
         </Grid>
 
         <Grid item xs={12} sm={6}>
           <Link to="/cart">
-            <Typography>Cart</Typography>
+            <Typography aria-label="cart link">Cart ({cartAmount})</Typography>
           </Link>
         </Grid>
       </Grid>
