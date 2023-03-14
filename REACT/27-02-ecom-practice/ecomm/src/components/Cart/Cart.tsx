@@ -32,7 +32,7 @@ export const Cart = () => {
           fontSize="1.5rem"
           textAlign="center"
           borderTop="1px solid black"
-          aria-label="empty cart message"
+          role="empty cart message"
         >
           Your cart is empty
         </Typography>
@@ -42,6 +42,7 @@ export const Cart = () => {
             {cartProducts.map((product) => (
               <li>
                 <Grid
+                  aria-label="cart-products"
                   item
                   xs={12}
                   container
@@ -53,7 +54,9 @@ export const Cart = () => {
                   sx={{ "& MuiTypography-root": { fontSize: "20px" } }}
                 >
                   <Grid item xs={6}>
-                    <Typography>{product.title}</Typography>
+                    <Typography aria-label="product title">
+                      {product.title}
+                    </Typography>
                   </Grid>
 
                   <Grid item xs={3} display="flex" gap={"20px"}>
@@ -61,11 +64,11 @@ export const Cart = () => {
                       color="success"
                       title="+"
                       type="addProduct"
+                      aria-label="add button"
                       productId={product.id}
                     />
 
                     <Typography textAlign={"center"}>
-                      {" "}
                       {product.amount}
                     </Typography>
 
@@ -73,7 +76,7 @@ export const Cart = () => {
                       color="error"
                       title="-"
                       type="removeProduct"
-                      aria-label="remove"
+                      aria-label="remove button"
                       productId={product.id}
                     />
                   </Grid>

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cart matches snapshot 1`] = `
+<h3
+  className="MuiTypography-root MuiTypography-h3 css-1rov7ti-MuiTypography-root"
+  role="empty cart message"
+>
+  Your cart is empty
+</h3>
+`;
